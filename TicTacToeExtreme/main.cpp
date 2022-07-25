@@ -1,1 +1,6 @@
-//this is the main class
+#include "pch.h"
+
+int main() {
+
+	return 0;
+}

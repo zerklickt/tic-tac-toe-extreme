@@ -8,9 +8,39 @@
     <ClCompile Include="main.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>src\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="RandomBot.cpp">
+      <Filter>src\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Human.cpp">
+      <Filter>src\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="SmartBot.cpp">
+      <Filter>src\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="GUI.cpp">
+      <Filter>src\GUI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
+    <ClInclude Include="Player.hpp">
+      <Filter>src\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="RandomBot.hpp">
+      <Filter>src\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Human.hpp">
+      <Filter>src\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="SmartBot.hpp">
+      <Filter>src\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI.hpp">
+      <Filter>src\GUI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -21,6 +51,12 @@
     </Filter>
     <Filter Include="test">
       <UniqueIdentifier>{407c5334-62bf-4d23-9a44-736f0b286aa9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Player">
+      <UniqueIdentifier>{584853d1-3297-4d9d-a302-58f226056890}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\GUI">
+      <UniqueIdentifier>{9d82d4ed-2ba9-491b-b776-0517b2b53ed8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

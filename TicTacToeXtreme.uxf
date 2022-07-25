@@ -1,0 +1,89 @@
+<diagram program="umletino" version="15.0.0"><zoom_level>6</zoom_level><element><id>UMLClass</id><coordinates><x>348</x><y>150</y><w>126</w><h>114</h></coordinates><panel_attributes>&lt;&lt;GameManager&gt;&gt;
+
+--
+-id: Long
+_-ClassAttribute: Long_
+--
+#Operation(i: int): int
+/+AbstractOperation()/
+--
+Responsibilities
+-- Do Game Loop
+-- Check for Winner</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>348</x><y>336</y><w>126</w><h>114</h></coordinates><panel_attributes>&lt;&lt;Player&gt;&gt;
+
+--
+-id: Long
+_-ClassAttribute: Long_
+--
+#Operation(i: int): int
+/+AbstractOperation()/
+--
+Responsibilities
+-- Resp1
+*-- Resp2*</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>30</x><y>336</y><w>126</w><h>114</h></coordinates><panel_attributes>&lt;&lt;Playground&gt;&gt;
+
+--
+-id: Long
+_-ClassAttribute: Long_
+--
+#Operation(i: int): int
+/+AbstractOperation()/
+--
+Responsibilities
+-- Resp1
+*-- Resp2*</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>192</x><y>336</y><w>126</w><h>114</h></coordinates><panel_attributes>&lt;&lt;GUI&gt;&gt;
+
+--
+-id: Long
+_-ClassAttribute: Long_
+--
+#Operation(i: int): int
+/+AbstractOperation()/
+--
+Responsibilities
+-- Resp1
+*-- Resp2*</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>258</x><y>486</y><w>126</w><h>114</h></coordinates><panel_attributes>&lt;&lt;RandomBot&gt;&gt;
+
+--
+-id: Long
+_-ClassAttribute: Long_
+--
+#Operation(i: int): int
+/+AbstractOperation()/
+--
+Responsibilities
+-- Resp1
+*-- Resp2*</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>510</x><y>336</y><w>126</w><h>114</h></coordinates><panel_attributes>&lt;&lt;InputManager&gt;&gt;
+
+--
+-id: Long
+_-ClassAttribute: Long_
+--
+#Operation(i: int): int
+/+AbstractOperation()/
+--
+Responsibilities
+-- Resp1
+*-- Resp2*</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>432</x><y>486</y><w>126</w><h>114</h></coordinates><panel_attributes>&lt;&lt;Human&gt;&gt;
+
+--
+-id: Long
+_-ClassAttribute: Long_
+--
+#Operation(i: int): int
+/+AbstractOperation()/
+--
+Responsibilities
+-- Resp1
+*-- Resp2*</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>114</x><y>486</y><w>126</w><h>114</h></coordinates><panel_attributes>&lt;&lt;SmartBot&gt;&gt;
+
+--
+
+_-ClassAttribute: 
+--
+#Operation():
+
+--
+Responsibilities
+-- Resp1
+*-- Resp2*</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>402</x><y>444</y><w>102</w><h>54</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;150;70</additional_attributes></element><element><id>Relation</id><coordinates><x>312</x><y>444</y><w>108</w><h>54</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>160;10;10;70</additional_attributes></element><element><id>Relation</id><coordinates><x>168</x><y>444</y><w>246</w><h>54</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>390;10;10;70</additional_attributes></element><element><id>Relation</id><coordinates><x>402</x><y>258</y><w>18</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;10;10;130</additional_attributes></element><element><id>Relation</id><coordinates><x>246</x><y>258</y><w>168</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>260;10;10;130</additional_attributes></element><element><id>Relation</id><coordinates><x>414</x><y>258</y><w>168</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;10;260;130</additional_attributes></element><element><id>Relation</id><coordinates><x>150</x><y>390</y><w>48</w><h>18</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>60;10;10;10</additional_attributes></element></diagram>

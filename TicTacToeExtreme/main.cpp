@@ -5,6 +5,8 @@
 #include "RandomBot.hpp"
 #include "Human.hpp"
 #include "SmartBot.hpp"
+#include "Playground.hpp"
+#include "GUI.hpp"
 
 
 int main(int argc, char** argv) {
@@ -19,7 +21,14 @@ int main(int argc, char** argv) {
 	std::cout << human1.getName() << std::endl << human1.getSymbol() << std::endl;
 	std::cout << smartbot1.getName() << std::endl << smartbot1.getSymbol() << std::endl;
 
-
+	GUI gui;
+	Playground playground(23, 25);
+	gui.printPlayground(playground);
+	playground.placeSymbol(player1.getSymbol(), 2, 4);
+	playground.placeSymbol(human1.getSymbol(), 5, 5);
+	playground.placeSymbol(bot1.getSymbol(), 9, 9);
+	playground.placeSymbol(smartbot1.getSymbol(), 15, 15);
+	gui.printPlayground(playground);
 	//
 	return RUN_ALL_TESTS();
 }

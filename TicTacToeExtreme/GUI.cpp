@@ -1,14 +1,15 @@
 #include "pch.h"
 #include <iostream>
+#include <string>
 
 #include "GUI.hpp"
 
-/*
+/**/
 void GUI::printPlayground(const Playground& playground)
 {
 	int width = playground.getWidth();
 	int height = playground.getHeight();
-	std::vector<std::vector<Color>> field = playground.getField();
+	std::vector<std::vector<char>> field = playground.getField();
 
 	system("cls");
 
@@ -19,35 +20,46 @@ void GUI::printPlayground(const Playground& playground)
 		{
 			if (x == 0 && y == 0)
 			{
-				std::cout << "  ";
+				std::cout << "  |";
 				continue;
 			}
 			if (x == 0)
 			{
-				std::cout << y << " ";
-				continue;
+				if (y > 9) {
+					std::cout << y << "|";
+					continue;
+				}
+				else {
+					std::cout << y << " |";
+					continue;
+				}
 			}
 			if (y == 0)
 			{
-				std::cout << x << " ";
-				continue;
+				if (x > 9) {
+					std::cout << x << "|";
+					continue;
+				}
+				else {
+					std::cout << x << " |";
+					continue;
+				}
 			}
 			else
 			{
-				printChip(x - 1, y - 1, field);;
+				printChip(x - 1, y - 1, field);
 			}
 		}
 		std::cout << std::endl;
 	}
 }
-*/
+	
 
 
-// depending on the color of the player: blue = x, yellow = o
-void GUI::printChip(const int x, const int y, const std::vector<std::vector<Color>> field)
 
+void GUI::printChip(const int x, const int y, const std::vector<std::vector<char>> field)
 {
 
 	char checkSymbol = field[x][y];
-	std::cout << checkSymbol;
+	std::cout << checkSymbol << " |";
 }

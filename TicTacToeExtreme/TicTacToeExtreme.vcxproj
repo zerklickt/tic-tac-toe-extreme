@@ -37,6 +37,7 @@
     <ClInclude Include="Human.hpp" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Player.hpp" />
+    <ClInclude Include="Playground.hpp" />
     <ClInclude Include="RandomBot.hpp" />
     <ClInclude Include="SmartBot.hpp" />
   </ItemGroup>
@@ -45,6 +46,7 @@
     <ClCompile Include="Human.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Playground.cpp" />
     <ClCompile Include="RandomBot.cpp" />
     <ClCompile Include="SmartBot.cpp" />
     <ClCompile Include="test.cpp" />

@@ -1,17 +1,17 @@
 #include "pch.hpp"
+
 #include "FileManager.hpp"
 
 class FileManagerTest : public testing::Test {
 
 protected:
+
 	FileManager m_filemanager;
 
     virtual void SetUp() override
     {
         m_filemanager = FileManager();
     }
-
-    
 
 };
 /*

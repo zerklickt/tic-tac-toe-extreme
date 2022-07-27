@@ -2,7 +2,7 @@
 
 #include "SmartBot.hpp"
 
-class PlaygroundTest : public testing::Test {
+class SmartBotTest : public testing::Test {
 
 protected:
 

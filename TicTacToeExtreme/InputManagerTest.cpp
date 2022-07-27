@@ -2,7 +2,7 @@
 
 #include "InputManager.hpp"
 
-class PlaygroundTest : public testing::Test {
+class InputManagerTest : public testing::Test {
 
 protected:
 

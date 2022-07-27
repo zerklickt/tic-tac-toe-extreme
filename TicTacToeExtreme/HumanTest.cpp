@@ -1,10 +1,8 @@
-
-
 #include "pch.hpp"
 
 #include "Human.hpp"
 
-class PlaygroundTest : public testing::Test {
+class HumanTest : public testing::Test {
 
 protected:
 

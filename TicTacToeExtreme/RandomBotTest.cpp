@@ -2,7 +2,7 @@
 
 #include "RandomBot.hpp"
 
-class PlaygroundTest : public testing::Test {
+class RandomBotTest : public testing::Test {
 
 protected:
 

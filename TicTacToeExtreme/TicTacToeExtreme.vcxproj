@@ -33,11 +33,28 @@
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros" />
   <ItemGroup>
+    <ClInclude Include="FileManager.hpp" />
+    <ClInclude Include="GUI.hpp" />
+    <ClInclude Include="Human.hpp" />
+    <ClInclude Include="InputManager.hpp" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="Player.hpp" />
+    <ClInclude Include="Playground.hpp" />
+    <ClInclude Include="RandomBot.hpp" />
+    <ClInclude Include="SmartBot.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="FileManager.cpp" />
+    <ClCompile Include="GUI.cpp" />
+    <ClCompile Include="Human.cpp" />
+    <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="test.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Playground.cpp" />
+    <ClCompile Include="PlaygroundTest.cpp" />
+    <ClCompile Include="RandomBot.cpp" />
+    <ClCompile Include="SmartBot.cpp" />
+    <ClCompile Include="FileManagerTest.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>

@@ -2,15 +2,66 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="pch.cpp" />
-    <ClCompile Include="test.cpp">
+    <ClCompile Include="FileManagerTest.cpp">
       <Filter>test</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>src\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="RandomBot.cpp">
+      <Filter>src\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Human.cpp">
+      <Filter>src\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="SmartBot.cpp">
+      <Filter>src\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="GUI.cpp">
+      <Filter>src\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Playground.cpp">
+      <Filter>src\Playground</Filter>
+    </ClCompile>
+    <ClCompile Include="FileManager.cpp">
+      <Filter>src\FileManager</Filter>
+    </ClCompile>
+    <ClCompile Include="PlaygroundTest.cpp">
+      <Filter>test</Filter>
+    </ClCompile>
+    <ClCompile Include="InputManager.cpp">
+      <Filter>src\InputManager</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
+    <ClInclude Include="Player.hpp">
+      <Filter>src\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="RandomBot.hpp">
+      <Filter>src\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Human.hpp">
+      <Filter>src\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="SmartBot.hpp">
+      <Filter>src\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI.hpp">
+      <Filter>src\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Playground.hpp">
+      <Filter>src\Playground</Filter>
+    </ClInclude>
+    <ClInclude Include="FileManager.hpp">
+      <Filter>src\FileManager</Filter>
+    </ClInclude>
+    <ClInclude Include="InputManager.hpp">
+      <Filter>src\InputManager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -21,6 +72,21 @@
     </Filter>
     <Filter Include="test">
       <UniqueIdentifier>{407c5334-62bf-4d23-9a44-736f0b286aa9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Player">
+      <UniqueIdentifier>{584853d1-3297-4d9d-a302-58f226056890}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\GUI">
+      <UniqueIdentifier>{9d82d4ed-2ba9-491b-b776-0517b2b53ed8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Playground">
+      <UniqueIdentifier>{7d395855-3a7c-47cb-a421-08254bddfa66}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\FileManager">
+      <UniqueIdentifier>{586388a8-1943-4849-b87b-c536817d2d33}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\InputManager">
+      <UniqueIdentifier>{69d0b1f9-7d0f-4a06-b7f9-32c1ed4e34c2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -1,0 +1,7 @@
+Parameterfile
+
+Fieldheight: 
+15     
+
+Fieldwidth:
+12 

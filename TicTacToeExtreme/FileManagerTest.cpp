@@ -1,9 +1,11 @@
 #include "pch.hpp"
+
 #include "FileManager.hpp"
 
 class FileManagerTest : public testing::Test {
 
 protected:
+
 	FileManager m_filemanager;
 
     virtual void SetUp() override
@@ -11,14 +13,13 @@ protected:
         m_filemanager = FileManager();
     }
 
-    
-
 };
-
+/*
 TEST(TestCaseName, TestName) {
   EXPECT_EQ(1, 1);
   EXPECT_TRUE(true);
 }
+*/
 
 
 TEST_F(FileManagerTest, correctFileReading) {

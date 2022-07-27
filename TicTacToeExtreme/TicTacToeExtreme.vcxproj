@@ -47,6 +47,7 @@
     <ClCompile Include="FileManager.cpp" />
     <ClCompile Include="GUI.cpp" />
     <ClCompile Include="Human.cpp" />
+    <ClCompile Include="HumanTest.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
@@ -54,6 +55,7 @@
     <ClCompile Include="Playground.cpp" />
     <ClCompile Include="PlaygroundTest.cpp" />
     <ClCompile Include="RandomBot.cpp" />
+    <ClCompile Include="RandomBotTest.cpp" />
     <ClCompile Include="SmartBot.cpp" />
     <ClCompile Include="FileManagerTest.cpp" />
     <ClCompile Include="pch.cpp">
@@ -62,6 +64,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="SmartBotTest.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

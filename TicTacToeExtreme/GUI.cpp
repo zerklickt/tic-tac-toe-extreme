@@ -1,10 +1,10 @@
-#include "pch.h"
 #include <iostream>
 #include <string>
 
+#include "pch.h"
 #include "GUI.hpp"
 
-/**/
+
 void GUI::printPlayground(const Playground& playground)
 {
 	int width = playground.getWidth();

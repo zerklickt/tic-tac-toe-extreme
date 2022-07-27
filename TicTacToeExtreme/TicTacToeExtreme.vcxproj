@@ -50,6 +50,7 @@
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PlayerTest.cpp" />
     <ClCompile Include="Playground.cpp" />
     <ClCompile Include="PlaygroundTest.cpp" />
     <ClCompile Include="RandomBot.cpp" />

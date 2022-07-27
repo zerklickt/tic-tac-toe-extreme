@@ -35,6 +35,9 @@
     <ClCompile Include="InputManager.cpp">
       <Filter>src\InputManager</Filter>
     </ClCompile>
+    <ClCompile Include="PlayerTest.cpp">
+      <Filter>test</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.hpp" />

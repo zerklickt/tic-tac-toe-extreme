@@ -16,18 +16,23 @@ public:
             m_field.push_back(col);
         }
     };
-    ~Playground() {};
 
-    Playground& operator=(const Playground& rhs)
-    {
-        this->m_width = rhs.m_width;
-        this->m_height = rhs.m_height;
-        this->m_field = rhs.m_field;
+    Playground() :
+        m_width(3),
+        m_height(3) {
+        for (int x = 0; x < m_width; x++) {
+            std::vector<char> col;
+            for (int y = 0; y < m_height; y++) {
+                col.push_back(' ');
+            }
+            m_field.push_back(col);
+        }
     };
+    ~Playground() {};
 
     bool placeSymbol(const char symbol, const int rawX, const int rawY);
     std::vector<std::vector<char>> getField() const;
-    bool checkForWin(const int x, const int y, const char symbol);
+    bool checkForWin(const char symbol, const int rawX, const int rawY);
     int countCells(const int x, const int y, const int xdir, const int ydir, const char symbol);
     bool canPlaceChip(const int rawX, const int rawY) const;
     bool isFull() const;

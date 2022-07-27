@@ -34,6 +34,7 @@
   <PropertyGroup Label="UserMacros" />
   <ItemGroup>
     <ClInclude Include="FileManager.hpp" />
+    <ClInclude Include="GameManager.hpp" />
     <ClInclude Include="GUI.hpp" />
     <ClInclude Include="Human.hpp" />
     <ClInclude Include="InputManager.hpp" />
@@ -45,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FileManager.cpp" />
+    <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GUI.cpp" />
     <ClCompile Include="Human.cpp" />
     <ClCompile Include="InputManager.cpp" />

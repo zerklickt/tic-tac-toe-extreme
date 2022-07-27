@@ -5,7 +5,10 @@
 class FileManager{
 
 public:
-	FileManager() {};
+	FileManager()
+		: m_fieldHeight(3)
+		, m_fieldWidth(3)
+	{};
 
 	void readFile(const std::string);
 

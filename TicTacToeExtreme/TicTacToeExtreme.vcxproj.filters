@@ -35,6 +35,9 @@
     <ClCompile Include="InputManager.cpp">
       <Filter>src\InputManager</Filter>
     </ClCompile>
+    <ClCompile Include="GameManager.cpp">
+      <Filter>src\GameManager</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.hpp" />
@@ -62,6 +65,9 @@
     <ClInclude Include="InputManager.hpp">
       <Filter>src\InputManager</Filter>
     </ClInclude>
+    <ClInclude Include="GameManager.hpp">
+      <Filter>src\GameManager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -87,6 +93,9 @@
     </Filter>
     <Filter Include="src\InputManager">
       <UniqueIdentifier>{69d0b1f9-7d0f-4a06-b7f9-32c1ed4e34c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\GameManager">
+      <UniqueIdentifier>{dd58b331-6048-467f-966b-63d0c6e5f191}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

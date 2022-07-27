@@ -8,12 +8,11 @@ class PlaygroundTest : public testing::Test {
 
 protected:
 
-
     Playground m_playground;
 
     virtual void SetUp() override
     {
-        m_playground = Playground(5, 6);
+        m_playground = Playground(3,4);
     }
 
     void fillField() {
@@ -33,9 +32,11 @@ TEST(TestCaseName2, TestName2) {
 }
 
 
+
 /*
 TEST_F(PlaygroundTest, fieldIsFull) {
     fillField();
     EXPECT_EQ(m_playground.isFull(), true);
 }
 */
+

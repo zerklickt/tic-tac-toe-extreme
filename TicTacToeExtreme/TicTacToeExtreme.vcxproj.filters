@@ -47,6 +47,12 @@
     <ClCompile Include="SmartBotTest.cpp">
       <Filter>test</Filter>
     </ClCompile>
+    <ClCompile Include="InputManagerTest.cpp">
+      <Filter>test</Filter>
+    </ClCompile>
+    <ClCompile Include="GUITest.cpp">
+      <Filter>test</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.hpp" />

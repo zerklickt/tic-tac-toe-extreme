@@ -1,4 +1,6 @@
 # tic-tac-toe-extreme
+[![Made-for-Visual Studio](https://img.shields.io/badge/Made%20for-Visual%20Studio-blue.svg)](https://visualstudio.microsoft.com/de/downloads/)
+
 Tic-Tac-Toe Extreme
 
 Abschlussprojekt C++ ITA21

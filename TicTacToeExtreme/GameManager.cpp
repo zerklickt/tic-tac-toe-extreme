@@ -24,54 +24,91 @@ int GameManager::chooseNumberOf(std::string text, int lowest, int highest){
 // initializing players or bots depending on the gamemode
 void GameManager::startGame(){
 
-    cout << "READY PLAYER 1" << endl;
-    int playerCount = chooseNumberOf("Players", 2, 26);
-    int humanCount = chooseNumberOf("Humans", 0, playerCount);
-    int randomBotCount = chooseNumberOf("RandomBots", 0, playerCount - humanCount);
-    int smartBotCount = playerCount - humanCount - randomBotCount;
 
-    cout << "Players:" << playerCount << endl;
+
+    cout << "READY PLAYER 1" << endl;
+    m_playerCount = chooseNumberOf("Players", 2, 26);
+    int humanCount = chooseNumberOf("Humans", 0, m_playerCount);
+    int randomBotCount = chooseNumberOf("RandomBots", 0, m_playerCount - humanCount);
+    int smartBotCount = m_playerCount - humanCount - randomBotCount;
+
+    cout << "Players:" << m_playerCount << endl;
     cout << "Humans:" << humanCount << endl;
     cout << "RandomBots:" << randomBotCount << endl;
     cout << "SmartBots:" << smartBotCount << endl;
+    /*
+    for (int i = 0; i < playerCount; i++) {
+        Player* player = NULL;
+        m_players.push_back(player);
+    }*/
+   
+    for (int i = 0; i < humanCount; i++) {
+        string name= InputManager::readString("Input Name of Player :");
+        //Human human(name, 97 + i);
+        m_players.push_back(new Human(name, 97 + i));
+    }
+    for (int i = 0; i < randomBotCount; i++) {
+        //RandomBot randombot(97 + humanCount + i);
+        m_players.push_back(new RandomBot(97 + humanCount + i));
+    }
+    for (int i = 0; i < smartBotCount; i++) {
+        SmartBot smartBot(97 + humanCount + randomBotCount + i);
+        m_players.push_back(new SmartBot(97 + humanCount + randomBotCount + i));
+    }
+
+    //Debug
+    /*
+    for (auto i : m_players) {
+        cout << "Name Player : " << i.getName();
+        cout << ",  Symbol Player : " << i.getSymbol() << endl;
+        
+    }
+    */
+    
+    
+    gameLoop();
+    
 }
 
-/*
+
 // placing a chip per turn until someone wins
-void GameManager::gameLoop(Player* player1, Player* player2)
+void GameManager::gameLoop()
 {
-    int counter = 0;
+    
+    unsigned int counter = 0;
     bool won = false;
-    Player* turn = player1;
+    auto turn = m_players.begin();
     GUI gui;
     gui.printPlayground(*getPlayground());
-
+    
     do
     {
-        if (counter % 2 == 0)
-        {
-            turn = player1;
-        }
-        else
-        {
-            turn = player2;
-        }
-        int xPosition = turn->makeMove(turn->getName() + ", place chip in column: ", *getPlayground());
-        int yPosition = getPlayground()->placeChip(turn->getColor(), xPosition);
-        if (yPosition == -1)
+        //turn = m_players[counter % m_playerCount];
+        std::pair<int, int> position = (*turn)->makeMove("Your turn, " + (*turn)->getName(), *getPlayground());
+        bool success = getPlayground()->placeSymbol((*turn)->getSymbol(), position.first, position.second);
+        if (!success)
         {
             gui.printPlayground(*getPlayground());
-            cout << "Invalid move! " << turn->getName() << ", go again!" << endl << endl;
+            cout << "Invalid move! " << (*turn)->getName() << ", go again!" << endl << endl;
             continue;
         }
         gui.printPlayground(*getPlayground());
-        won = getPlayground()->checkForWin(xPosition - 1, yPosition - 1, turn->getColor());
+        won = getPlayground()->checkForWin(position.first - 1, position.second - 1, (*turn)->getSymbol());
         counter++;
+        if (counter % m_playerCount == 0) {
+            turn = m_players.begin();
+        }
+        else {
+            turn = std::next(turn, 1);
+        }
+        
+        
 
     } while (!won);
 
-    endGame(turn->getName());
+    endGame((*turn)->getName());
 }
+
 
 // gameover text
 void GameManager::endGame(const std::string name) const
@@ -96,37 +133,8 @@ void GameManager::endGame(const std::string name) const
     cout << "    `-.....-'" << endl;
 }
 
-// gamemode 2 or 3 -> bot choosen
-void GameManager::chooseBot(Player*& botPlayer, Color color, std::string message)
-{
-    cout << message << endl;
-    cout << "RandomBot (Input: 1) " << endl;
-    cout << "SmartBot (Input: 2) " << endl;
-    cout << "HorizontalBot (Input: 3) " << endl;
-    cout << "VerticalBot (Input: 4) " << endl;
-    int bot = InputManager::readIntFromRange("", 1, 4);
-
-    switch (bot)
-    {
-    case 1:
-        botPlayer = new RandomBot(color);
-        break;
-    case 2:
-        botPlayer = new SmartBot(color);
-        break;
-    case 3:
-        botPlayer = new HorizontalBot(color);
-        break;
-    case 4:
-        botPlayer = new VerticalBot(color);
-        break;
-    default:
-        break;
-    }
-}
 
 Playground* GameManager::getPlayground()
 {
     return &m_playground;
 }
-*/

@@ -5,10 +5,10 @@
 class FileManager{
 
 public:
-	FileManager()
-		: m_fieldHeight(3)
-		, m_fieldWidth(3)
-	{};
+	FileManager(){
+
+		readFile("../config.txt");
+	};
 
 	void readFile(const std::string);
 

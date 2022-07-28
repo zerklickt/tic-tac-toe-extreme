@@ -1,118 +1,123 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="pch.cpp" />
-    <ClCompile Include="FileManagerTest.cpp">
-      <Filter>test</Filter>
-    </ClCompile>
-    <ClCompile Include="main.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>src\Player</Filter>
-    </ClCompile>
-    <ClCompile Include="RandomBot.cpp">
-      <Filter>src\Player</Filter>
-    </ClCompile>
-    <ClCompile Include="Human.cpp">
-      <Filter>src\Player</Filter>
-    </ClCompile>
-    <ClCompile Include="SmartBot.cpp">
-      <Filter>src\Player</Filter>
-    </ClCompile>
-    <ClCompile Include="GUI.cpp">
-      <Filter>src\GUI</Filter>
-    </ClCompile>
-    <ClCompile Include="Playground.cpp">
-      <Filter>src\Playground</Filter>
-    </ClCompile>
     <ClCompile Include="FileManager.cpp">
-      <Filter>src\FileManager</Filter>
-    </ClCompile>
-    <ClCompile Include="PlaygroundTest.cpp">
-      <Filter>test</Filter>
-    </ClCompile>
-    <ClCompile Include="InputManager.cpp">
-      <Filter>src\InputManager</Filter>
+      <Filter>FileManager</Filter>
     </ClCompile>
     <ClCompile Include="GameManager.cpp">
-      <Filter>src\GameManager</Filter>
-    <ClCompile Include="PlayerTest.cpp">
-      <Filter>test</Filter>
+      <Filter>GameManager</Filter>
     </ClCompile>
-    <ClCompile Include="HumanTest.cpp">
-      <Filter>test</Filter>
+    <ClCompile Include="GUI.cpp">
+      <Filter>GUI</Filter>
     </ClCompile>
-    <ClCompile Include="RandomBotTest.cpp">
-      <Filter>test</Filter>
+    <ClCompile Include="Human.cpp">
+      <Filter>Player\Human</Filter>
     </ClCompile>
-    <ClCompile Include="SmartBotTest.cpp">
-      <Filter>test</Filter>
+    <ClCompile Include="InputManager.cpp">
+      <Filter>InputManager</Filter>
     </ClCompile>
-    <ClCompile Include="InputManagerTest.cpp">
-      <Filter>test</Filter>
+    <ClCompile Include="FileManagerTest.cpp">
+      <Filter>Test</Filter>
     </ClCompile>
     <ClCompile Include="GUITest.cpp">
-      <Filter>test</Filter>
+      <Filter>Test</Filter>
+    </ClCompile>
+    <ClCompile Include="HumanTest.cpp">
+      <Filter>Test</Filter>
+    </ClCompile>
+    <ClCompile Include="InputManagerTest.cpp">
+      <Filter>Test</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerTest.cpp">
+      <Filter>Test</Filter>
+    </ClCompile>
+    <ClCompile Include="PlaygroundTest.cpp">
+      <Filter>Test</Filter>
+    </ClCompile>
+    <ClCompile Include="RandomBotTest.cpp">
+      <Filter>Test</Filter>
+    </ClCompile>
+    <ClCompile Include="SmartBotTest.cpp">
+      <Filter>Test</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Playground.cpp">
+      <Filter>Playground</Filter>
+    </ClCompile>
+    <ClCompile Include="RandomBot.cpp">
+      <Filter>Player\RandomBot</Filter>
+    </ClCompile>
+    <ClCompile Include="SmartBot.cpp">
+      <Filter>Player\SmartBot</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.hpp" />
-    <ClInclude Include="Player.hpp">
-      <Filter>src\Player</Filter>
-    </ClInclude>
-    <ClInclude Include="RandomBot.hpp">
-      <Filter>src\Player</Filter>
-    </ClInclude>
-    <ClInclude Include="Human.hpp">
-      <Filter>src\Player</Filter>
-    </ClInclude>
-    <ClInclude Include="SmartBot.hpp">
-      <Filter>src\Player</Filter>
-    </ClInclude>
-    <ClInclude Include="GUI.hpp">
-      <Filter>src\GUI</Filter>
-    </ClInclude>
-    <ClInclude Include="Playground.hpp">
-      <Filter>src\Playground</Filter>
-    </ClInclude>
     <ClInclude Include="FileManager.hpp">
-      <Filter>src\FileManager</Filter>
-    </ClInclude>
-    <ClInclude Include="InputManager.hpp">
-      <Filter>src\InputManager</Filter>
+      <Filter>FileManager</Filter>
     </ClInclude>
     <ClInclude Include="GameManager.hpp">
-      <Filter>src\GameManager</Filter>
+      <Filter>GameManager</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI.hpp">
+      <Filter>GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Human.hpp">
+      <Filter>Player\Human</Filter>
+    </ClInclude>
+    <ClInclude Include="InputManager.hpp">
+      <Filter>InputManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.hpp">
+      <Filter>Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Playground.hpp">
+      <Filter>Playground</Filter>
+    </ClInclude>
+    <ClInclude Include="RandomBot.hpp">
+      <Filter>Player\RandomBot</Filter>
+    </ClInclude>
+    <ClInclude Include="SmartBot.hpp">
+      <Filter>Player\SmartBot</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="src">
-      <UniqueIdentifier>{ae823c1b-fc7b-439e-9bc1-d30548ec6227}</UniqueIdentifier>
+    <Filter Include="FileManager">
+      <UniqueIdentifier>{ed5bd1a6-1f09-4ea7-8d69-703cf4b590d7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="test">
-      <UniqueIdentifier>{407c5334-62bf-4d23-9a44-736f0b286aa9}</UniqueIdentifier>
+    <Filter Include="GameManager">
+      <UniqueIdentifier>{ad992041-01f8-491b-8886-caf4341dd70c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Player">
-      <UniqueIdentifier>{584853d1-3297-4d9d-a302-58f226056890}</UniqueIdentifier>
+    <Filter Include="GUI">
+      <UniqueIdentifier>{9e58a41d-1e4a-436e-af9d-afacae494269}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\GUI">
-      <UniqueIdentifier>{9d82d4ed-2ba9-491b-b776-0517b2b53ed8}</UniqueIdentifier>
+    <Filter Include="InputManager">
+      <UniqueIdentifier>{0982f07a-d992-4df6-8c5b-d4b2a9ba1c6e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Playground">
-      <UniqueIdentifier>{7d395855-3a7c-47cb-a421-08254bddfa66}</UniqueIdentifier>
+    <Filter Include="Test">
+      <UniqueIdentifier>{7d1fa797-f2e7-47c8-a156-4c1032891165}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\FileManager">
-      <UniqueIdentifier>{586388a8-1943-4849-b87b-c536817d2d33}</UniqueIdentifier>
+    <Filter Include="Player">
+      <UniqueIdentifier>{2ac57221-444e-48e9-8667-0d64d7bb138b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\InputManager">
-      <UniqueIdentifier>{69d0b1f9-7d0f-4a06-b7f9-32c1ed4e34c2}</UniqueIdentifier>
+    <Filter Include="Playground">
+      <UniqueIdentifier>{f57aeb17-99e2-4848-8e9e-4b5ae5a33b46}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\GameManager">
-      <UniqueIdentifier>{dd58b331-6048-467f-966b-63d0c6e5f191}</UniqueIdentifier>
+    <Filter Include="Player\SmartBot">
+      <UniqueIdentifier>{c45cb376-c015-42c1-af6f-dd3d97f3a336}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Player\RandomBot">
+      <UniqueIdentifier>{8ffceb2b-0689-4a9a-b23f-4635d455fb69}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Player\Human">
+      <UniqueIdentifier>{bb3b8ba4-3322-431b-8d8e-65a0b5f6bc28}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

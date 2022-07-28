@@ -10,7 +10,7 @@ protected:
 
     virtual void SetUp() override
     {
-        m_player = new Player("Testplayer", 't');
+        //m_player = new Player("Testplayer", 't');
     }
 
 };

@@ -1,7 +1,7 @@
 Parameterfile
 
 Fieldheight: 
-8  
+5  
 
 Fieldwidth:
-12 
+5

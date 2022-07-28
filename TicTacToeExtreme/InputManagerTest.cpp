@@ -14,3 +14,7 @@ protected:
     }
 
 };
+
+TEST_F(InputManagerTest, inputTypeMismatch) {
+    //EXPECT_THROW(m_inputManager->readIntFromRange(1, 10), std::invalid_argument);
+}

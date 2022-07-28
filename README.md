@@ -15,9 +15,7 @@ Programmiert von Simon Rohrbach und Nick Hoschke
 
 [^1]: Genannte Komponenten können auch nach der Installation von VS noch installiert werden, dazu den Visual Studio Installer erneut aufrufen und bei der entsprechenden Installation auf `Ändern` klicken
 
-[^2]: Anleitung:
-- Falls Sie noch nicht im Willkommensfenster sind: `Datei` -> `Startfenster anzeigen`)
-- Repository klonen
+[^2]: Klonen in Visual Studio ist über den `Datei` -> `Startfenster anzeigen` möglich
 
 ## Hinweise
 ### Programmstruktur

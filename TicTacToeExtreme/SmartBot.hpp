@@ -12,7 +12,7 @@ public:
 	};
 
 	~SmartBot() {};
-	//int makeMove(const std::string message, Playground playground) override;
+	std::pair<int, int> makeMove(const std::string message, Playground playground) override;
 
 private:
 	static int m_botId;

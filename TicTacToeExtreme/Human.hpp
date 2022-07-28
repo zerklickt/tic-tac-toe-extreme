@@ -12,7 +12,7 @@ public:
 
     ~Human() {};
 
-    //int makeMove(std::string message, Playground playground) override;
+    std::pair<int,int> makeMove(std::string message, Playground playground) override;
 
 private:
 

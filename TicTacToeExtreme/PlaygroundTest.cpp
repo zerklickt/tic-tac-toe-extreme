@@ -12,7 +12,7 @@ protected:
 
     virtual void SetUp() override
     {
-        m_playground = Playground(5, 6);
+        m_playground = Playground(3,4);
     }
 
     void fillField() {
@@ -27,6 +27,7 @@ protected:
         return m_playground.placeSymbol(symbol, x, y);
     }
 };
+
 
 TEST_F(PlaygroundTest, fieldIsFull) {
     fillField();
@@ -53,3 +54,4 @@ TEST_F(PlaygroundTest, winCheck) {
     setSymbol('a', 3, 2);
     EXPECT_EQ(m_playground.checkForWin('a', 3, 2), true);
 }
+

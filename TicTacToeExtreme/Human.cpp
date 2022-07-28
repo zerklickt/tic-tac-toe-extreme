@@ -3,13 +3,17 @@
 
 
 #include "Human.hpp"
-//#include "InputManager.hpp"
+#include "InputManager.hpp"
 
-/*
-// places chip in column depending on column input
-int Human::makeMove(const std::string message, Playground playground)
+
+//places chip in column depending on column input
+std::pair<int, int> Human::makeMove(const std::string message, Playground playground)
 {
-	int x = InputManager::readIntFromRange(message, 1, playground.getWidth());
-	return x;
+	std::cout << message << std::endl;
+	int y = InputManager::readIntFromRange("Input Line: ", 1, playground.getHeight());
+	int x = InputManager::readIntFromRange("Input Column: ", 1, playground.getWidth());
+	
+
+	return std::make_pair(x,y);
 }
-*/
+

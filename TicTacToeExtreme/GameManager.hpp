@@ -21,6 +21,7 @@ public:
 
     int chooseNumberOf(std::string, int, int);
     void startGame();
+    void printAsciiArt();
     
     void endGame(const std::string name) const;
 

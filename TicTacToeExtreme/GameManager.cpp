@@ -9,7 +9,7 @@
 #include "InputManager.hpp"
 #include "RandomBot.hpp"
 #include "SmartBot.hpp"
-//#include "Gamemode.hpp"
+
 
 using namespace std;
 
@@ -17,14 +17,26 @@ using namespace std;
 int GameManager::chooseNumberOf(std::string text, int lowest, int highest){
 
     int Count = InputManager::readIntFromRange("Insert number of " + text + ":", lowest, highest);
-    //system("cls");
+    
     return Count;
+}
+
+void GameManager::printAsciiArt() {
+    
+    cout << "  ________________   _________   ______   __________  ______   _  __    __________  ________  _________" << endl;
+    cout << " /_  __/  _/ ____/  /_  __/   | / ____/  /_  __/ __ \\/ ____/  | |/ /   /_  __/ __ \\/ ____/  |/  / ____/" << endl;
+    cout << "  / /  / // /        / / / /| |/ /        / / / / / / __/     |   /_____/ / / /_/ / __/ / /|_/ / __/   " << endl;
+    cout << " / / _/ // /___     / / / ___ / /___     / / / /_/ / /___    /   /_____/ / / _, _/ /___/ /  / / /___   " << endl;
+    cout << "/_/ /___/\\____/    /_/ /_/  |_\\____/    /_/  \\____/_____/   /_/|_|    /_/ /_/ |_/_____/_/  /_/_____/   " << endl;
+    cout << "                                                                                                       " << endl;
+
+
 }
 
 // initializing players or bots depending on the gamemode
 void GameManager::startGame(){
 
-
+    printAsciiArt();
 
     cout << "READY PLAYER 1" << endl;
     m_playerCount = chooseNumberOf("Players", 2, 26);
@@ -36,11 +48,6 @@ void GameManager::startGame(){
     cout << "Humans:" << humanCount << endl;
     cout << "RandomBots:" << randomBotCount << endl;
     cout << "SmartBots:" << smartBotCount << endl;
-    /*
-    for (int i = 0; i < playerCount; i++) {
-        Player* player = NULL;
-        m_players.push_back(player);
-    }*/
    
     for (int i = 0; i < humanCount; i++) {
         string name= InputManager::readString("Input Name of Player :");
@@ -56,16 +63,6 @@ void GameManager::startGame(){
         m_players.push_back(new SmartBot(97 + humanCount + randomBotCount + i));
     }
 
-    //Debug
-    /*
-    for (auto i : m_players) {
-        cout << "Name Player : " << i.getName();
-        cout << ",  Symbol Player : " << i.getSymbol() << endl;
-        
-    }
-    */
-    
-    
     gameLoop();
     
 }
@@ -107,9 +104,14 @@ void GameManager::gameLoop()
         
         
 
-    } while (!won);
+    } while (!won && !getPlayground()->isFull());
 
-    endGame((*turn)->getName());
+    if (won) {
+        endGame((*turn)->getName());
+    }
+    else {
+        cout << "You sock. TIE!" << endl;
+    }
 }
 
 

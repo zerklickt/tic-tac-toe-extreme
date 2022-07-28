@@ -37,6 +37,23 @@
     </ClCompile>
     <ClCompile Include="GameManager.cpp">
       <Filter>src\GameManager</Filter>
+    <ClCompile Include="PlayerTest.cpp">
+      <Filter>test</Filter>
+    </ClCompile>
+    <ClCompile Include="HumanTest.cpp">
+      <Filter>test</Filter>
+    </ClCompile>
+    <ClCompile Include="RandomBotTest.cpp">
+      <Filter>test</Filter>
+    </ClCompile>
+    <ClCompile Include="SmartBotTest.cpp">
+      <Filter>test</Filter>
+    </ClCompile>
+    <ClCompile Include="InputManagerTest.cpp">
+      <Filter>test</Filter>
+    </ClCompile>
+    <ClCompile Include="GUITest.cpp">
+      <Filter>test</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

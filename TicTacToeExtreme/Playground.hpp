@@ -32,8 +32,8 @@ public:
 
     bool placeSymbol(const char symbol, const int rawX, const int rawY);
     std::vector<std::vector<char>> getField() const;
-    bool checkForWin(const char symbol, const int rawX, const int rawY);
-    int countCells(const int x, const int y, const int xdir, const int ydir, const char symbol);
+    bool checkForWin(const char symbol, const int rawX, const int rawY) const;
+    int countCells(const int x, const int y, const int xdir, const int ydir, const char symbol) const;
     bool canPlaceChip(const int rawX, const int rawY) const;
     bool isFull() const;
 

@@ -93,7 +93,10 @@ void GameManager::gameLoop()
             continue;
         }
         gui.printPlayground(*getPlayground());
-        won = getPlayground()->checkForWin(position.first - 1, position.second - 1, (*turn)->getSymbol());
+        won = getPlayground()->checkForWin((*turn)->getSymbol(),position.first, position.second);
+        if (won) {
+            break;
+        }
         counter++;
         if (counter % m_playerCount == 0) {
             turn = m_players.begin();

@@ -49,9 +49,9 @@ TEST_F(PlaygroundTest, spotIsOutOfBounds) {
 }
 
 TEST_F(PlaygroundTest, winCheck) {
-    setSymbol('a', 4, 2);
-    setSymbol('a', 2, 2);
     setSymbol('a', 3, 2);
+    setSymbol('a', 3, 1);
+    setSymbol('a', 3, 3);
     EXPECT_EQ(m_playground.checkForWin('a', 3, 2), true);
 }
 

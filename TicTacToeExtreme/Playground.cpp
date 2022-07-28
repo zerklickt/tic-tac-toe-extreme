@@ -32,8 +32,8 @@ int Playground::getWidth() const {
 
 //checks if player with passed symbol has won
 bool Playground::checkForWin(const char symbol, const int rawX, const int rawY) const {
-    int x = rawX - 1;
-    int y = rawY - 1;
+    int x = rawX -1;
+    int y = rawY -1;
     return countCells(x - 1, y, -1, 0, symbol) + countCells(x + 1, y, 1, 0, symbol) >= 2 ||
         countCells(x, y - 1, 0, -1, symbol) + countCells(x, y + 1, 0, 1, symbol) >= 2 ||
         countCells(x - 1, y - 1, -1, -1, symbol) + countCells(x + 1, y + 1, 1, 1, symbol) >= 2 ||

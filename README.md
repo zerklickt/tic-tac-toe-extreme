@@ -25,7 +25,7 @@ Programmiert von Simon Rohrbach und Nick Hoschke
 
 ### Dateistruktur
 Die Dateistruktur im Repository sieht sehr unstrukturiert aus, da alle Dateien im selben Ordner liegen. Wenn der Import in Visual Studio korrekt funktioniert hat, sind die Dateien in Filtern abgelegt, um somit eine package-ähnliche Struktur bei der Entwicklung zu ermöglichen.
-Die Standardansicht in Visual Studio zeigt keine Filter an, falls also im Projektmappen-Explorer keine Filter zu sehen sind und die Wurzel des Projektbaums keine Projektmappe ist, bitte auf dieses Symbol PLATZHALTER und anschließend doppelt auf `TicTacToeExtreme.sln` klicken.
+Die Standardansicht in Visual Studio zeigt keine Filter an, falls also im Projektmappen-Explorer keine Filter zu sehen sind und die Wurzel des Projektbaums keine Projektmappe ist, bitte auf dieses Symbol ![icon](https://github.com/zerklickt/tic-tac-toe-extreme/blob/cdbbd8ca0f4b65576ed6afe9b9034ab9edcf632d/readme-resources/switch-view-icon.png?raw=true) und anschließend doppelt auf `TicTacToeExtreme.sln` klicken.
 
 ### Struktur der config-Datei
 Nach der Syntax der Config-Datei sind Parameter immer in der nächsten Zeile nach ihrem jeweiligen Key einzutragen

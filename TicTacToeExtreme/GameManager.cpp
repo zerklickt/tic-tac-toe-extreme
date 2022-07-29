@@ -102,8 +102,6 @@ void GameManager::gameLoop()
             turn = std::next(turn, 1);
         }
         
-        
-
     } while (!won && !getPlayground()->isFull());
 
     if (won) {
@@ -118,6 +116,7 @@ void GameManager::gameLoop()
 // gameover text
 void GameManager::endGame(const std::string name) const
 {
+
 
     cout << "Game over" << endl;
     cout << "Winner: " << name << endl << endl;

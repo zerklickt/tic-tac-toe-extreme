@@ -21,6 +21,9 @@ public:
 private:
 	static int m_botId;
 	bool simulateMove(Playground, int, int, char);
+	std::pair<int, int> checkForDirectionOfPair(int, int, Playground&, char);
+	int m_lastX = 0;
+	int m_lastY = 0;
 
 };
 

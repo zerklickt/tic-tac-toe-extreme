@@ -9,7 +9,6 @@
 void FileManager::readFile(const std::string path){
 
     std::string line;
-    
 	
 	std::ifstream myfile(path, std::ios::in);
     if (!myfile) {

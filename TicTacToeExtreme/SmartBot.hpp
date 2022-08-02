@@ -5,6 +5,8 @@
 #include <string>
 
 #include "Player.hpp"
+
+
 class SmartBot : public Player{
 
 public:
@@ -17,6 +19,10 @@ public:
 
 	~SmartBot() {};
 	std::pair<int, int> makeMove(const std::string message, Playground playground) override;
+
+
+	friend class SmartBotTest;
+	//friend class testing::Test;
 
 private:
 	static int m_botId;

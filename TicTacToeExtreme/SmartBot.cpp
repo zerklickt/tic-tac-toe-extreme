@@ -8,7 +8,7 @@ int SmartBot::m_botId = 1;
 
 std::pair<int, int> SmartBot::makeMove(const std::string message, Playground playground) {
 
-	//Sleep(1000);
+	//Sleep(200);
 
 	std::pair<int, int> directionOfOwnPair = checkForDirectionOfPair(m_lastX-1, m_lastY-1, playground, m_symbol);   //win with a double
 	if (directionOfOwnPair.first != 0 || directionOfOwnPair.second != 0) {
@@ -50,7 +50,7 @@ std::pair<int, int> SmartBot::makeMove(const std::string message, Playground pla
 		}
 	}
 	
-	for (int y = 0; y < playground.getHeight(); y++) {													//keep opponent from winning
+	for (int y = 0; y < playground.getHeight(); y++) {													//prevent the opponent from winning
 		for (int x = 0; x < playground.getWidth(); x++) {
 			if (playground.getField()[x][y] != ' ') {
 				std::pair<int, int> directionOfPair = checkForDirectionOfPair(x, y, playground, playground.getField()[x][y]);

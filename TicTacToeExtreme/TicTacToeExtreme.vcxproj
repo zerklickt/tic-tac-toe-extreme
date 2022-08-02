@@ -47,6 +47,7 @@
   <ItemGroup>
     <ClCompile Include="FileManager.cpp" />
     <ClCompile Include="GameManager.cpp" />
+    <ClCompile Include="GameManagerTest.cpp" />
     <ClCompile Include="GUI.cpp" />
     <ClCompile Include="GUITest.cpp" />
     <ClCompile Include="Human.cpp" />

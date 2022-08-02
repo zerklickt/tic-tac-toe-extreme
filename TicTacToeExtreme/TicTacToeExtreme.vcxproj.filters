@@ -54,6 +54,9 @@
     <ClCompile Include="SmartBot.cpp">
       <Filter>Player\SmartBot</Filter>
     </ClCompile>
+    <ClCompile Include="GameManagerTest.cpp">
+      <Filter>Test</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.hpp" />

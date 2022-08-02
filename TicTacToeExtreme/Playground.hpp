@@ -37,6 +37,7 @@ public:
     bool canPlaceChip(const int rawX, const int rawY) const;
     bool isFull() const;
 
+
     int getHeight() const;
     int getWidth() const;
 private:

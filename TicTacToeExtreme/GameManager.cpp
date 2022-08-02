@@ -14,7 +14,7 @@
 using namespace std;
 
 // choosing a gamemode 
-int GameManager::chooseNumberOf(std::string text, int lowest, int highest){
+int GameManager::chooseNumberOf(std::string text, int lowest, int highest) {
 
     int Count = InputManager::readIntFromRange("Insert number of " + text + ":", lowest, highest);
     
@@ -34,7 +34,7 @@ void GameManager::printAsciiArt() {
 }
 
 // initializing players or bots depending on the gamemode
-void GameManager::startGame(){
+void GameManager::startGame() {
 
     printAsciiArt();
 
@@ -59,7 +59,7 @@ void GameManager::startGame(){
         m_players.push_back(new RandomBot(97 + humanCount + i));
     }
     for (int i = 0; i < smartBotCount; i++) {
-        SmartBot smartBot(97 + humanCount + randomBotCount + i);
+        //SmartBot smartBot(97 + humanCount + randomBotCount + i);
         m_players.push_back(new SmartBot(97 + humanCount + randomBotCount + i));
     }
 
@@ -69,8 +69,7 @@ void GameManager::startGame(){
 
 
 // placing a chip per turn until someone wins
-void GameManager::gameLoop()
-{
+void GameManager::gameLoop() {
     
     unsigned int counter = 0;
     bool won = false;
@@ -102,25 +101,22 @@ void GameManager::gameLoop()
             turn = std::next(turn, 1);
         }
         
-        
-
     } while (!won && !getPlayground()->isFull());
 
     if (won) {
-        endGame((*turn)->getName());
+        endGame(*(*turn));
     }
     else {
-        cout << "You sock. TIE!" << endl;
+        cout << "TIE! The field is full!" << endl << endl;
     }
 }
 
 
 // gameover text
-void GameManager::endGame(const std::string name) const
-{
+void GameManager::endGame(const Player& winner) const {
 
     cout << "Game over" << endl;
-    cout << "Winner: " << name << endl << endl;
+    cout << "Winner: " << winner.getName() << " (" << winner.getSymbol() << ")" << endl << endl;
 
     cout << "|@@@@|     |####| " << endl;
     cout << "|@@@@|     |####|" << endl;
@@ -139,7 +135,6 @@ void GameManager::endGame(const std::string name) const
 }
 
 
-Playground* GameManager::getPlayground()
-{
+Playground* GameManager::getPlayground() {
     return &m_playground;
 }

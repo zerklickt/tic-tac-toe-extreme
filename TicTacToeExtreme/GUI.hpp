@@ -8,7 +8,10 @@ public:
 	~GUI() {};
 
 	void printPlayground(const Playground& playground);
+	
 
 private:
 	void printChip(const int y, const int x, const std::vector<std::vector<char>> field);
+	void printWhatsInTheField(int, int, std::vector<std::vector<char>> field);
+	
 };

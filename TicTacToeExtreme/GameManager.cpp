@@ -14,7 +14,7 @@
 using namespace std;
 
 // choosing a gamemode 
-int GameManager::chooseNumberOf(std::string text, int lowest, int highest){
+int GameManager::chooseNumberOf(std::string text, int lowest, int highest) {
 
     int Count = InputManager::readIntFromRange("Insert number of " + text + ":", lowest, highest);
     
@@ -34,7 +34,7 @@ void GameManager::printAsciiArt() {
 }
 
 // initializing players or bots depending on the gamemode
-void GameManager::startGame(){
+void GameManager::startGame() {
 
     printAsciiArt();
 
@@ -69,8 +69,7 @@ void GameManager::startGame(){
 
 
 // placing a chip per turn until someone wins
-void GameManager::gameLoop()
-{
+void GameManager::gameLoop() {
     
     unsigned int counter = 0;
     bool won = false;
@@ -105,7 +104,7 @@ void GameManager::gameLoop()
     } while (!won && !getPlayground()->isFull());
 
     if (won) {
-        endGame((*turn)->getName());
+        endGame(*(*turn));
     }
     else {
         cout << "TIE! The field is full!" << endl << endl;
@@ -114,12 +113,10 @@ void GameManager::gameLoop()
 
 
 // gameover text
-void GameManager::endGame(const std::string name) const
-{
-
+void GameManager::endGame(const Player& winner) const {
 
     cout << "Game over" << endl;
-    cout << "Winner: " << name << endl << endl;
+    cout << "Winner: " << winner.getName() << " (" << winner.getSymbol() << ")" << endl << endl;
 
     cout << "|@@@@|     |####| " << endl;
     cout << "|@@@@|     |####|" << endl;
@@ -138,7 +135,6 @@ void GameManager::endGame(const std::string name) const
 }
 
 
-Playground* GameManager::getPlayground()
-{
+Playground* GameManager::getPlayground() {
     return &m_playground;
 }

@@ -23,7 +23,7 @@ public:
     void startGame();
     void printAsciiArt();
     
-    void endGame(const std::string name) const;
+    void endGame(const Player& winner) const;
 
     Playground* getPlayground();
     

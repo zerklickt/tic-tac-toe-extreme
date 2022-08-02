@@ -19,7 +19,6 @@ public:
      
     };
 
-    int chooseNumberOf(std::string, int, int);
     void startGame();
     void printAsciiArt();
     
@@ -30,12 +29,12 @@ public:
     
 
 private:
-    //std::vector<Player> m_players;
-    //std::vector<Player> m_players;
     std::list<Player*> m_players;
 
     int m_playerCount;
     void gameLoop();
     Playground m_playground;
-    
+
+    void createPlayers(int humanCount, int randomBotCount, int smartBotCount);
+    void displayPlayerInformation(int humanCount, int randomBotCount, int smartBotCount);
 };

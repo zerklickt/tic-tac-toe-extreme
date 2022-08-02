@@ -13,14 +13,6 @@
 
 using namespace std;
 
-// choosing a gamemode 
-int GameManager::chooseNumberOf(std::string text, int lowest, int highest) {
-
-    int Count = InputManager::readIntFromRange("Insert number of " + text + ":", lowest, highest);
-    
-    return Count;
-}
-
 void GameManager::printAsciiArt() {
     
     cout << "  ________________   _________   ______   __________  ______   _  __    __________  ________  _________" << endl;
@@ -30,43 +22,47 @@ void GameManager::printAsciiArt() {
     cout << "/_/ /___/\\____/    /_/ /_/  |_\\____/    /_/  \\____/_____/   /_/|_|    /_/ /_/ |_/_____/_/  /_/_____/   " << endl;
     cout << "                                                                                                       " << endl;
 
-
 }
 
-// initializing players or bots depending on the gamemode
+// initializing players and bots
 void GameManager::startGame() {
 
     printAsciiArt();
 
-    cout << "READY PLAYER 1" << endl;
-    m_playerCount = chooseNumberOf("Players", 2, 26);
-    int humanCount = chooseNumberOf("Humans", 0, m_playerCount);
-    int randomBotCount = chooseNumberOf("RandomBots", 0, m_playerCount - humanCount);
+    m_playerCount = InputManager::readIntFromRange("Players: ", 2, 26);
+    int humanCount = InputManager::readIntFromRange("Humans (max. " + std::to_string(m_playerCount) + "): ", 0, m_playerCount);
+    int randomBotCount = InputManager::readIntFromRange("Random Bots (max. " + std::to_string(m_playerCount - humanCount) + "): ",
+        0,
+        m_playerCount - humanCount);
     int smartBotCount = m_playerCount - humanCount - randomBotCount;
-
-    cout << "Players:" << m_playerCount << endl;
-    cout << "Humans:" << humanCount << endl;
-    cout << "RandomBots:" << randomBotCount << endl;
-    cout << "SmartBots:" << smartBotCount << endl;
-   
-    for (int i = 0; i < humanCount; i++) {
-        string name= InputManager::readString("Input Name of Player :");
-        //Human human(name, 97 + i);
-        m_players.push_back(new Human(name, 97 + i));
-    }
-    for (int i = 0; i < randomBotCount; i++) {
-        //RandomBot randombot(97 + humanCount + i);
-        m_players.push_back(new RandomBot(97 + humanCount + i));
-    }
-    for (int i = 0; i < smartBotCount; i++) {
-        //SmartBot smartBot(97 + humanCount + randomBotCount + i);
-        m_players.push_back(new SmartBot(97 + humanCount + randomBotCount + i));
-    }
-
+    
+    displayPlayerInformation(humanCount, randomBotCount, smartBotCount);
+    createPlayers(humanCount, randomBotCount, smartBotCount);
     gameLoop();
     
 }
 
+// displays information about amount of players and bots
+void GameManager::displayPlayerInformation(int humanCount, int randomBotCount, int smartBotCount) {
+    cout << "Players:\t" << m_playerCount << endl;
+    cout << "Humans:\t\t" << humanCount << endl;
+    cout << "RandomBots:\t" << randomBotCount << endl;
+    cout << "SmartBots:\t" << smartBotCount << endl;
+}
+
+// creates all players and puts them in a list
+void GameManager::createPlayers(int humanCount, int randomBotCount, int smartBotCount) {
+    for (int i = 0; i < humanCount; i++) {
+        string name = InputManager::readString("Input Name of Player " + std::to_string(i + 1) + ":");
+        m_players.push_back(new Human(name, 97 + i));
+    }
+    for (int i = 0; i < randomBotCount; i++) {
+        m_players.push_back(new RandomBot(97 + humanCount + i));
+    }
+    for (int i = 0; i < smartBotCount; i++) {
+        m_players.push_back(new SmartBot(97 + humanCount + randomBotCount + i));
+    }
+}
 
 // placing a chip per turn until someone wins
 void GameManager::gameLoop() {
@@ -77,13 +73,10 @@ void GameManager::gameLoop() {
     GUI gui;
     gui.printPlayground(*getPlayground());
     
-    do
-    {
-        //turn = m_players[counter % m_playerCount];
+    do {
         std::pair<int, int> position = (*turn)->makeMove("Your turn, " + (*turn)->getName(), *getPlayground());
         bool success = getPlayground()->placeSymbol((*turn)->getSymbol(), position.first, position.second);
-        if (!success)
-        {
+        if (!success) {
             gui.printPlayground(*getPlayground());
             cout << "Invalid move! " << (*turn)->getName() << ", go again!" << endl << endl;
             continue;
@@ -112,7 +105,7 @@ void GameManager::gameLoop() {
 }
 
 
-// gameover text
+// gameover graphics
 void GameManager::endGame(const Player& winner) const {
 
     cout << "Game over" << endl;
@@ -133,7 +126,6 @@ void GameManager::endGame(const Player& winner) const {
     cout << "  `.  * * *  .'" << endl;
     cout << "    `-.....-'" << endl;
 }
-
 
 Playground* GameManager::getPlayground() {
     return &m_playground;

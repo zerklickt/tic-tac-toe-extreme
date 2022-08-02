@@ -6,20 +6,17 @@
 
 
 
-std::string InputManager::readString(std::string message)
-{
+std::string InputManager::readString(std::string message) {
 	std::string text;
 	std::cout << message << std::endl;
 	std::cin >> text;
 	return text;
 }
 
-int InputManager::readIntFromRange(static std::string message, int min, int max)
-{
+int InputManager::readIntFromRange(static std::string message, int min, int max) {
 	bool flag = false;
 	int ret = 0;
-	do
-	{
+	do {
 		try {
 			ret = std::stoi(readString(message));
 		}
@@ -27,12 +24,10 @@ int InputManager::readIntFromRange(static std::string message, int min, int max)
 			std::cout << "Eingabe ungueltig, bitte erneut eingeben!" << std::endl;
 			continue;
 		}
-		if (ret >= min && ret <= max)
-		{
+		if (ret >= min && ret <= max) {
 			flag = true;
 		}
-		else
-		{
+		else {
 			std::cout << "Eingabe ungueltig, bitte erneut eingeben!" << std::endl;
 		}
 	} while (flag == false);

@@ -2,11 +2,10 @@
 #include <iostream>
 #include <fstream>
 
-class FileManager{
+class FileManager {
 
 public:
-	FileManager(){
-
+	FileManager() {
 		readFile("../config.txt");
 	};
 
@@ -20,5 +19,8 @@ private:
 	int m_fieldHeight;
 	int m_fieldWidth;
 
+	std::ifstream m_configFile;
+
+	void FileManager::tryToReadProperties();
 };
 

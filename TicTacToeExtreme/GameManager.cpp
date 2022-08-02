@@ -59,7 +59,7 @@ void GameManager::startGame(){
         m_players.push_back(new RandomBot(97 + humanCount + i));
     }
     for (int i = 0; i < smartBotCount; i++) {
-        SmartBot smartBot(97 + humanCount + randomBotCount + i);
+        //SmartBot smartBot(97 + humanCount + randomBotCount + i);
         m_players.push_back(new SmartBot(97 + humanCount + randomBotCount + i));
     }
 
@@ -108,7 +108,7 @@ void GameManager::gameLoop()
         endGame((*turn)->getName());
     }
     else {
-        cout << "You sock. TIE!" << endl;
+        cout << "TIE! The field is full!" << endl << endl;
     }
 }
 

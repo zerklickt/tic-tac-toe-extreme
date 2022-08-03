@@ -1,40 +1,34 @@
 #pragma once
-#include <vector>
 #include <string>
+#include <list>
 #include "Playground.hpp"
 #include "Player.hpp"
 #include "GUI.hpp"
 #include "Human.hpp"
-#include <list>
 #include "FileManager.hpp"
 
-class GameManager
-{
+class GameManager {
 public:
     GameManager() {
         FileManager filemanager;
         m_playground = Playground(filemanager.getFieldWidth(), filemanager.getFieldHeight());
     };
-    ~GameManager() {
-     
-    };
-
+    ~GameManager() {};
     void startGame();
-    void printAsciiArt();
+    Playground& getPlayground();
     
-    void endGame(const Player& winner) const;
-
-    Playground* getPlayground();
-    
-    
-
 private:
     std::list<Player*> m_players;
-
     int m_playerCount;
-    void gameLoop();
     Playground m_playground;
+    GUI m_gui;
 
-    void createPlayers(int humanCount, int randomBotCount, int smartBotCount);
-    void displayPlayerInformation(int humanCount, int randomBotCount, int smartBotCount);
+    Player* turnToNextPlayer(std::list<Player*>::iterator& turn, const unsigned int& counter);
+    std::pair<int, int> promptMove(Player* currentPlayer);
+    void gameLoop();
+    void printAsciiArt() const;
+    void createPlayers(const int humanCount, const int randomBotCount, const int smartBotCount);
+    void playerSetup(int& humanCount, int& randomBotCount, int& smartBotCount);
+    void displayPlayerInformation(const int& humanCount, const int& randomBotCount, const int& smartBotCount) const;
+    void endGame(const Player* winner) const;
 };

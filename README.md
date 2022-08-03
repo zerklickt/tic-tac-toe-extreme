@@ -41,11 +41,14 @@ Um also z.B. einen weiteren Bot einzufügen, wäre das Vorgehen folgendermaßen:
 * Erstelle eine neue Klasse und lasse diese aus `Player` erben
 * Spezifiere das Zugverhalten des Spielers durch Überschreiben der `makeMove`
 * Füge im `GameManager` eine neue Abfrage zu Beginn des Spiels für die Menge an Spielern von diesem Typ hinzu
+* Erstelle eine neue Schleife in `GameManager::createPlayers` für die Erstellung des neuen Spielertyps
 
 
 ## Hinweise
 ### Programmstruktur
-- Beim Starten des Programms wird zuerst das normale Programm und abschließend die implementierten Unit-Tests ausgeführt. Wenn Sie auf die Unit-Tests verzichten wollen, erstzen Sie das return-statement in der `main.cpp` durch ein `return 0;`
+Beim Starten des Programms wird zuerst das normale Programm und abschließend die implementierten Unit-Tests ausgeführt. Wenn Sie auf die Unit-Tests verzichten wollen, erstzen Sie das return-statement in der `main.cpp` durch ein `return 0;`.
+
+Alternativ können Sie die Unit-Tests auch zu Beginn ausführen, indem sie Zeile 17 in der `main.cpp` (`RUN_ALL_TESTS();`) dekommentieren.
 
 ### Dateistruktur
 Die Dateistruktur im Repository sieht sehr unstrukturiert aus, da alle Dateien im selben Ordner liegen. Wenn der Import in Visual Studio korrekt funktioniert hat, sind die Dateien in Filtern abgelegt, um somit eine package-ähnliche Struktur bei der Entwicklung zu ermöglichen.
@@ -64,4 +67,4 @@ Fieldheight:
 
 ### Ausführung im Debug-Modus
 Bei der Ausführung im Debug-Modus kommt es, bei bestimmten Konstellationen von Feldgröße und Spielerzahl, innerhalb von Google Test zu dem Fehler `bad-allocation`.
-Wir sind uns diesem Fehler bewusst, haben jedoch auch nach langer Suche im Internet keine Ursache für das Problem gefunden. Beim Ausführen ohne Debuggen tritt dieser Fehler nie auf.
+Wir sind uns diesen Fehlers bewusst, haben jedoch auch nach langer Suche im Internet keine Ursache für das Problem gefunden. Beim Ausführen ohne Debuggen tritt dieser Fehler nie auf.

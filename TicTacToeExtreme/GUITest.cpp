@@ -15,7 +15,3 @@ protected:
 
 };
 
-TEST_F(GUITest, ) {
-  
-
-}

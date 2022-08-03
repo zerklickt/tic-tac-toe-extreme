@@ -19,7 +19,6 @@ void FileManager::readFile(const std::string path) {
         m_configFile.close();
     }
     else std::cout << "Unable to open file";
-	
 }
 
 void FileManager::tryToReadProperties() {

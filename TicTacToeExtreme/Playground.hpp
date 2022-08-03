@@ -4,7 +4,6 @@
 
 class Playground {
 public:
-
     Playground(const int width, const int height) :
         m_width(width),
         m_height(height) {
@@ -16,7 +15,6 @@ public:
             m_field.push_back(col);
         }
     };
-
     Playground() :
         m_width(3),
         m_height(3) {
@@ -29,19 +27,19 @@ public:
         }
     };
     ~Playground() {};
-
     bool placeSymbol(const char symbol, const int rawX, const int rawY);
-    std::vector<std::vector<char>> getField() const;
     bool checkForWin(const char symbol, const int rawX, const int rawY) const;
-    int countCells(const int x, const int y, const int xdir, const int ydir, const char symbol) const;
-    bool canPlaceChip(const int rawX, const int rawY) const;
+    bool canPlaceSymbol(const int rawX, const int rawY) const;
     bool isFull() const;
-
-
+    int countCells(const int x, const int y, const int xdir, const int ydir, const char symbol) const;
     int getHeight() const;
     int getWidth() const;
+    std::vector<std::vector<char>> getField() const;
+
 private:
     int m_width;
     int m_height;
     std::vector<std::vector<char>> m_field;
+
+    bool isOutOfBounds(const int x, const int y) const;
 };

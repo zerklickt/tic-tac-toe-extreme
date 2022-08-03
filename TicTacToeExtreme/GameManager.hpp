@@ -6,7 +6,6 @@
 #include "Playground.hpp"
 #include "Player.hpp"
 #include "GUI.hpp"
-#include "Human.hpp"
 #include "FileManager.hpp"
 
 class GameManager {

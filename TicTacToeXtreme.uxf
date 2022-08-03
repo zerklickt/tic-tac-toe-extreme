@@ -1,89 +1,72 @@
-<diagram program="umletino" version="15.0.0"><zoom_level>6</zoom_level><element><id>UMLClass</id><coordinates><x>348</x><y>150</y><w>126</w><h>114</h></coordinates><panel_attributes>&lt;&lt;GameManager&gt;&gt;
+<diagram program="umletino" version="15.0.0"><zoom_level>6</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>516</x><y>240</y><w>126</w><h>114</h></coordinates><panel_attributes>&lt;&lt;GameManager&gt;&gt;
 
 --
--id: Long
-_-ClassAttribute: Long_
+- m_players : std::list&lt;Player*&gt; 
+- m_playerCount : int 
+- m_playground : Playground 
+- m_gui : GUI 
 --
-#Operation(i: int): int
-/+AbstractOperation()/
---
-Responsibilities
--- Do Game Loop
--- Check for Winner</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>348</x><y>336</y><w>126</w><h>114</h></coordinates><panel_attributes>&lt;&lt;Player&gt;&gt;
++ startGame() : void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>462</x><y>414</y><w>228</w><h>114</h></coordinates><panel_attributes>&lt;&lt;Player&gt;&gt;
 
 --
--id: Long
-_-ClassAttribute: Long_
---
-#Operation(i: int): int
-/+AbstractOperation()/
---
-Responsibilities
--- Resp1
-*-- Resp2*</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>30</x><y>336</y><w>126</w><h>114</h></coordinates><panel_attributes>&lt;&lt;Playground&gt;&gt;
+- m_name : std::string
+- m_symbol : char 
 
 --
--id: Long
-_-ClassAttribute: Long_
---
-#Operation(i: int): int
-/+AbstractOperation()/
---
-Responsibilities
--- Resp1
-*-- Resp2*</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>192</x><y>336</y><w>126</w><h>114</h></coordinates><panel_attributes>&lt;&lt;GUI&gt;&gt;
++ makeMove(std::string, Playground) : virtual std::pair&lt;int, int&gt;</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>222</x><y>294</y><w>150</w><h>114</h></coordinates><panel_attributes>&lt;&lt;Playground&gt;&gt;
 
 --
--id: Long
-_-ClassAttribute: Long_
+- m_width : int
+- m_height : int 
+- m_field :  std::vector&lt;std::vector&lt;char&gt;&gt;
 --
-#Operation(i: int): int
-/+AbstractOperation()/
---
-Responsibilities
--- Resp1
-*-- Resp2*</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>258</x><y>486</y><w>126</w><h>114</h></coordinates><panel_attributes>&lt;&lt;RandomBot&gt;&gt;
++ placeSymbol(char, int, int) :  bool 
++ canPlaceSymbol(int, int) : bool
++ checkForWin(char, int, int) : bool 
++ isFull() : bool
++ countCells(int, int, int, int, char) : int
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>228</x><y>108</y><w>144</w><h>114</h></coordinates><panel_attributes>&lt;&lt;GUI&gt;&gt;
 
 --
--id: Long
-_-ClassAttribute: Long_
---
-#Operation(i: int): int
-/+AbstractOperation()/
---
-Responsibilities
--- Resp1
-*-- Resp2*</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>510</x><y>336</y><w>126</w><h>114</h></coordinates><panel_attributes>&lt;&lt;InputManager&gt;&gt;
+- 
+
 
 --
--id: Long
-_-ClassAttribute: Long_
---
-#Operation(i: int): int
-/+AbstractOperation()/
---
-Responsibilities
--- Resp1
-*-- Resp2*</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>432</x><y>486</y><w>126</w><h>114</h></coordinates><panel_attributes>&lt;&lt;Human&gt;&gt;
++printPlayground(Playground&amp;) : void 
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>468</x><y>576</y><w>228</w><h>66</h></coordinates><panel_attributes>&lt;&lt;RandomBot&gt;&gt;
 
 --
--id: Long
-_-ClassAttribute: Long_
---
-#Operation(i: int): int
-/+AbstractOperation()/
---
-Responsibilities
--- Resp1
-*-- Resp2*</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>114</x><y>486</y><w>126</w><h>114</h></coordinates><panel_attributes>&lt;&lt;SmartBot&gt;&gt;
+- m_botId : static int 
+
 
 --
-
-_-ClassAttribute: 
---
-#Operation():
++ makeMove(std::string, Playground) override : std::pair&lt;int, int&gt; </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>840</x><y>240</y><w>180</w><h>114</h></coordinates><panel_attributes>&lt;&lt;InputManager&gt;&gt;
 
 --
-Responsibilities
--- Resp1
-*-- Resp2*</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>402</x><y>444</y><w>102</w><h>54</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;150;70</additional_attributes></element><element><id>Relation</id><coordinates><x>312</x><y>444</y><w>108</w><h>54</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>160;10;10;70</additional_attributes></element><element><id>Relation</id><coordinates><x>168</x><y>444</y><w>246</w><h>54</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>390;10;10;70</additional_attributes></element><element><id>Relation</id><coordinates><x>402</x><y>258</y><w>18</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;10;10;130</additional_attributes></element><element><id>Relation</id><coordinates><x>246</x><y>258</y><w>168</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>260;10;10;130</additional_attributes></element><element><id>Relation</id><coordinates><x>414</x><y>258</y><w>168</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;10;260;130</additional_attributes></element><element><id>Relation</id><coordinates><x>150</x><y>390</y><w>48</w><h>18</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>60;10;10;10</additional_attributes></element></diagram>
+- 
+
+
+--
++ readString(std::string) : static std::string 
++ readIntFromRange(std::string, int, int) : static int </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>708</x><y>576</y><w>222</w><h>66</h></coordinates><panel_attributes>&lt;&lt;Human&gt;&gt;
+
+--
+- 
+
+
+--
++ makeMove(std::string, Playground) override : std::pair&lt;int,int&gt; </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>228</x><y>576</y><w>228</w><h>66</h></coordinates><panel_attributes>&lt;&lt;SmartBot&gt;&gt;
+
+--
+- m_botId : static int 
+- m_lastX : int
+- m_lastY : int
+--
++ makeMove(std::string, Playground) override : std::pair&lt;int, int&gt; </panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>576</x><y>522</y><w>252</w><h>66</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;400;90</additional_attributes></element><element><id>Relation</id><coordinates><x>570</x><y>522</y><w>18</w><h>66</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;90</additional_attributes></element><element><id>Relation</id><coordinates><x>336</x><y>522</y><w>246</w><h>66</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>390;10;10;90</additional_attributes></element><element><id>Relation</id><coordinates><x>570</x><y>348</y><w>18</w><h>78</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;10;10;110</additional_attributes></element><element><id>Relation</id><coordinates><x>366</x><y>162</y><w>162</w><h>150</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>250;230;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>636</x><y>294</y><w>216</w><h>18</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;10;340;10</additional_attributes></element><element><id>Relation</id><coordinates><x>366</x><y>306</y><w>162</w><h>60</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>250;10;10;80</additional_attributes></element><element><id>UMLClass</id><coordinates><x>522</x><y>54</y><w>132</w><h>114</h></coordinates><panel_attributes>&lt;&lt;FileManager&gt;&gt;
+
+--
+- m_fieldHeight : int
+- m_fieldWidth: int
+
+--
++ readFile(std::string) : void </panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>576</x><y>162</y><w>18</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;130;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>288</x><y>216</y><w>18</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;10;10;130</additional_attributes></element></diagram>

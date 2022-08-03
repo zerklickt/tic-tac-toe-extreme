@@ -45,6 +45,9 @@ Um also z.B. einen weiteren Bot einzufügen, wäre das Vorgehen folgendermaßen:
 
 
 ## Hinweise
+### Allgemeine Informationen zum Spiel
+Aufgrund der Darstellbarkeit der verschiedenen Spielern haben wir die maximale Spielerzahl auf 26 begrenzt, sodass jeder Spieler einen eigenen Buchstaben als Symbol hat.
+
 ### Programmstruktur
 Beim Starten des Programms wird zuerst das normale Programm und abschließend die implementierten Unit-Tests ausgeführt. Wenn Sie auf die Unit-Tests verzichten wollen, erstzen Sie das return-statement in der `main.cpp` durch ein `return 0;`.
 

@@ -1,6 +1,6 @@
-#include "pch.hpp"
 #include <Windows.h>
 
+#include "pch.hpp"
 #include "SmartBot.hpp"
 #include "RandomBot.hpp"
 
@@ -24,13 +24,13 @@ std::pair<int, int> SmartBot::makeMove(const std::string message, Playground pla
 }
 
 // simulates a move and checks if this move leads to a win
-bool SmartBot::simulateMove(Playground playground, int column, int line,  char symbol) {
+bool SmartBot::simulateMove(Playground playground, const int column, const int line, const char symbol) {
 	playground.placeSymbol(symbol, column, line);
 	return playground.checkForWin(symbol, column, line);
 }
 
 // returns vector to the next position of an existing pair
-std::pair<int, int> SmartBot::checkForDirectionOfPair(int x, int y, Playground& playground, char symbol) {
+std::pair<int, int> SmartBot::checkForDirectionOfPair(Playground& playground, const int x, const int y, const char symbol) {
 
 	for (int ix = -1; ix <= 1; ix++) {
 		for (int iy = -1; iy <= 1; iy++) {
@@ -47,7 +47,7 @@ std::pair<int, int> SmartBot::checkForDirectionOfPair(int x, int y, Playground& 
 //recognizes a pair and returns the coordinates to make a triple (if possible)
 std::pair<int, int> SmartBot::winWithPair(Playground& playground){
 
-	std::pair<int, int> directionOfOwnPair = checkForDirectionOfPair(m_lastX - 1, m_lastY - 1, playground, m_symbol);   
+	std::pair<int, int> directionOfOwnPair = checkForDirectionOfPair(playground, m_lastX - 1, m_lastY - 1, m_symbol);
 	if (directionOfOwnPair.first != 0 || directionOfOwnPair.second != 0) {
 		if (playground.canPlaceChip(m_lastX + directionOfOwnPair.first, m_lastY + directionOfOwnPair.second)) {
 			m_lastX = m_lastX + directionOfOwnPair.first;
@@ -83,7 +83,7 @@ std::pair<int, int> SmartBot::preventWinByPlacingBetweenTwo(Playground& playgrou
 		for (int x = 1; x <= playground.getWidth(); x++) {
 			char check = playground.getField()[x - 1][y - 1];
 			if (check != m_symbol && check != ' ') {
-				std::pair<int, int> returnedPair = checkAroundOpposingField(x, y, playground, check);
+				std::pair<int, int> returnedPair = checkAroundOpposingField(playground, x, y, check);
 				if (returnedPair.first != 0 || returnedPair.second != 0) {
 					return returnedPair;
 				}
@@ -95,7 +95,7 @@ std::pair<int, int> SmartBot::preventWinByPlacingBetweenTwo(Playground& playgrou
 }
 
 //checks every field around an opposing field for a split ("|x| |x|"-situation) (helper-method for "preventWinByPlacingBetweenTwo()")
-std::pair<int, int> SmartBot::checkAroundOpposingField(int x, int y, Playground& playground, char check){
+std::pair<int, int> SmartBot::checkAroundOpposingField(Playground& playground, const int x, const int y, const char check){
 
 	for (int ix = -1; ix <= 1; ix++) {
 		for (int iy = -1; iy <= 1; iy++) {
@@ -126,9 +126,9 @@ std::pair<int, int> SmartBot::preventWinWithPair(Playground& playground){
 }
 
 //finds opposing pair (helper-method for "preventWinWithPair()")
-std::pair<int, int> SmartBot::findOpposingPair(Playground& playground, int x, int y)
-{
-	std::pair<int, int> directionOfPair = checkForDirectionOfPair(x, y, playground, playground.getField()[x][y]);
+std::pair<int, int> SmartBot::findOpposingPair(Playground& playground, const int x, const int y){
+
+	std::pair<int, int> directionOfPair = checkForDirectionOfPair(playground, x, y, playground.getField()[x][y]);
 	if (directionOfPair.first != 0 || directionOfPair.second != 0) {
 		if (playground.canPlaceChip(x + 1 + directionOfPair.first, y + 1 + directionOfPair.second)) {
 			m_lastX = x + 1 + directionOfPair.first;

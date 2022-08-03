@@ -1,7 +1,9 @@
 #pragma once
+
 #include "Player.hpp"
 
 class Human : public Player{
+
 public:
     Human(const std::string name, char symbol)
         : Player(name, symbol) {};

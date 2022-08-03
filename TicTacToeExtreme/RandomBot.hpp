@@ -3,6 +3,7 @@
 #include "Player.hpp"
 
 class RandomBot : public Player {
+
 public:
 	RandomBot() {};
 	RandomBot(const char symbol)

@@ -5,6 +5,7 @@
 #include "Playground.hpp"
 
 class Player {
+
 public:
     Player()
         : m_name("Player")
@@ -20,6 +21,6 @@ public:
     virtual std::pair<int, int> makeMove(const std::string, Playground) = 0; //{ return std::make_pair(1, 1); };
 
 protected:
-    std::string m_name;
+    const std::string m_name;
     const char m_symbol;
 };

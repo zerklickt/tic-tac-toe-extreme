@@ -23,7 +23,6 @@ void GUI::printSingleCell(const int x, const int y, const std::vector<std::vecto
 		std::cout << "  |";
 		return;
 	}
-	// choose correct sizes of first line and first column
 	if (x == 0) {
 		if (y > 9) {
 			std::cout << y << "|";

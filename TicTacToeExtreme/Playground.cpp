@@ -6,20 +6,65 @@ bool Playground::placeSymbol(const char symbol, const int rawX, const int rawY) 
     //Convert to Array value
     int x = rawX - 1;
     int y = rawY - 1;
-    //Check if out of bounds
-    if (x >= m_width || x < 0 || y >= m_height || y < 0)
-        return false;
-    //Set symbol in field
-    if (m_field[x][y] == ' ') {
+    if (canPlaceSymbol(x, y)) {
         m_field[x][y] = symbol;
         return true;
     }
-    else
+    else {
         return false;
+    }
 }
 
-std::vector<std::vector<char>> Playground::getField() const {
-    return m_field;
+bool Playground::isOutOfBounds(const int x, const int y) const {
+    return (x >= m_width || x < 0 || y >= m_height || y < 0);
+}
+
+//checks if player with passed symbol has won
+bool Playground::checkForWin(const char symbol, const int rawX, const int rawY) const {
+    // convert screen coordinates in array coordinates
+    int x = rawX -1;
+    int y = rawY -1;
+    return countCells(x - 1, y, -1, 0, symbol) + countCells(x + 1, y, 1, 0, symbol) >= 2 ||
+        countCells(x, y - 1, 0, -1, symbol) + countCells(x, y + 1, 0, 1, symbol) >= 2 ||
+        countCells(x - 1, y - 1, -1, -1, symbol) + countCells(x + 1, y + 1, 1, 1, symbol) >= 2 ||
+        countCells(x - 1, y + 1, -1, 1, symbol) + countCells(x + 1, y - 1, 1, -1, symbol) >= 2;
+}
+
+// checks recursively how many symbols are located in a specified direction
+int Playground::countCells(const int x, const int y, const int xdir, const int ydir, const char symbol) const {
+    if (x >= 0 && x < m_width && y >= 0 && y < m_height) {
+        if (m_field[x][y] == symbol) {
+            return countCells(x + xdir, y + ydir, xdir, ydir, symbol) + 1;
+        }
+    }
+    return 0;
+}
+
+bool Playground::canPlaceSymbol(const int rawX, const int rawY) const {
+    // convert screen coordinates in array coordinates
+    int x = rawX - 1;
+    int y = rawY - 1;
+    if (isOutOfBounds(x, y)) {
+        return false;
+    }
+    if (m_field[x][y] == ' ') {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+//checks if all fields are occupied
+bool Playground::isFull() const {
+    for (int x = 0; x < m_width; x++) {
+        for (int y = 0; y < m_height; y++) {
+            if (canPlaceSymbol(x, y)) {
+                return false;
+            }
+        }
+    }
+    return true;
 }
 
 int Playground::getHeight() const {
@@ -30,47 +75,6 @@ int Playground::getWidth() const {
     return m_width;
 }
 
-//checks if player with passed symbol has won
-bool Playground::checkForWin(const char symbol, const int rawX, const int rawY) const {
-    int x = rawX -1;
-    int y = rawY -1;
-    return countCells(x - 1, y, -1, 0, symbol) + countCells(x + 1, y, 1, 0, symbol) >= 2 ||
-        countCells(x, y - 1, 0, -1, symbol) + countCells(x, y + 1, 0, 1, symbol) >= 2 ||
-        countCells(x - 1, y - 1, -1, -1, symbol) + countCells(x + 1, y + 1, 1, 1, symbol) >= 2 ||
-        countCells(x - 1, y + 1, -1, 1, symbol) + countCells(x + 1, y - 1, 1, -1, symbol) >= 2;
-}
-
-int Playground::countCells(const int x, const int y, const int xdir, const int ydir, const char symbol) const {
-    if (x >= 0 && x < m_width && y >= 0 && y < m_height) {
-        if (m_field[x][y] == symbol) {
-            return countCells(x + xdir, y + ydir, xdir, ydir, symbol) + 1;
-        }
-    }
-    return 0;
-}
-
-bool Playground::canPlaceChip(const int rawX, const int rawY) const {
-    //Convert to Array value
-    int x = rawX - 1;
-    int y = rawY - 1;
-    //Check if out of bounds
-    if (x >= m_width || x < 0 || y >= m_height || y < 0)
-        return false;
-    //Set symbol in field
-    if (m_field[x][y] == ' ')
-        return true;
-    else
-        return false;
-}
-
-//checks if all fields are occupied
-bool Playground::isFull() const {
-    for (int x = 0; x < m_width; x++) {
-        for (int y = 0; y < m_height; y++) {
-            if (m_field.at(x).at(y) == ' ') {
-                return false;
-            }
-        }
-    }
-    return true;
+std::vector<std::vector<char>> Playground::getField() const {
+    return m_field;
 }

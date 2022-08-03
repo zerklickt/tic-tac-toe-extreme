@@ -6,7 +6,7 @@
 
 int SmartBot::m_botId{ 1 };
 
-//called by gameManager 
+// called by GameManager 
 std::pair<int, int> SmartBot::makeMove(const std::string message, Playground playground) {
 
 	//Sleep(300);
@@ -49,12 +49,12 @@ std::pair<int, int> SmartBot::winWithPair(Playground& playground){
 
 	std::pair<int, int> directionOfOwnPair = checkForDirectionOfPair(m_lastX - 1, m_lastY - 1, playground, m_symbol);   
 	if (directionOfOwnPair.first != 0 || directionOfOwnPair.second != 0) {
-		if (playground.canPlaceChip(m_lastX + directionOfOwnPair.first, m_lastY + directionOfOwnPair.second)) {
+		if (playground.canPlaceSymbol(m_lastX + directionOfOwnPair.first, m_lastY + directionOfOwnPair.second)) {
 			m_lastX = m_lastX + directionOfOwnPair.first;
 			m_lastY = m_lastY + directionOfOwnPair.second;
 			return std::make_pair(m_lastX, m_lastY);
 		}
-		else if (playground.canPlaceChip(m_lastX + (-2) * directionOfOwnPair.first, m_lastY + (-2) * directionOfOwnPair.second)) {
+		else if (playground.canPlaceSymbol(m_lastX + (-2) * directionOfOwnPair.first, m_lastY + (-2) * directionOfOwnPair.second)) {
 			m_lastX = m_lastX + (-2) * directionOfOwnPair.first;
 			m_lastY = m_lastY + (-2) * directionOfOwnPair.second;
 			return std::make_pair(m_lastX, m_lastY);
@@ -68,7 +68,7 @@ std::pair<int, int> SmartBot::placeBetweenTwoToWin(Playground& playground){
 
 	for (int y = 1; y <= playground.getHeight(); y++) {													
 		for (int x = 1; x <= playground.getWidth(); x++) {
-			if (playground.canPlaceChip(x, y) && simulateMove(playground, x, y, m_symbol)) {
+			if (playground.canPlaceSymbol(x, y) && simulateMove(playground, x, y, m_symbol)) {
 				return std::make_pair(x, y);
 			}
 		}
@@ -101,7 +101,7 @@ std::pair<int, int> SmartBot::checkAroundOpposingField(int x, int y, Playground&
 		for (int iy = -1; iy <= 1; iy++) {
 			if (ix == 0 && iy == 0)
 				continue;
-			if (playground.canPlaceChip(x + ix, y + iy) && simulateMove(playground, x + ix, y + iy, check)) {
+			if (playground.canPlaceSymbol(x + ix, y + iy) && simulateMove(playground, x + ix, y + iy, check)) {
 				return std::make_pair(x + ix, y + iy);
 			}
 		}
@@ -130,12 +130,12 @@ std::pair<int, int> SmartBot::findOpposingPair(Playground& playground, int x, in
 {
 	std::pair<int, int> directionOfPair = checkForDirectionOfPair(x, y, playground, playground.getField()[x][y]);
 	if (directionOfPair.first != 0 || directionOfPair.second != 0) {
-		if (playground.canPlaceChip(x + 1 + directionOfPair.first, y + 1 + directionOfPair.second)) {
+		if (playground.canPlaceSymbol(x + 1 + directionOfPair.first, y + 1 + directionOfPair.second)) {
 			m_lastX = x + 1 + directionOfPair.first;
 			m_lastY = y + 1 + directionOfPair.second;
 			return std::make_pair(m_lastX, m_lastY);
 		}
-		else if (playground.canPlaceChip(x + 1 + (-2) * directionOfPair.first, y + 1 + (-2) * directionOfPair.second)) {
+		else if (playground.canPlaceSymbol(x + 1 + (-2) * directionOfPair.first, y + 1 + (-2) * directionOfPair.second)) {
 			m_lastX = x + 1 + (-2) * directionOfPair.first;
 			m_lastY = y + 1 + (-2) * directionOfPair.second;
 			return std::make_pair(m_lastX, m_lastY);
@@ -150,7 +150,7 @@ std::pair<int, int> SmartBot::placeNextToLastPlaced(Playground& playground){
 	if (m_lastX != 0 && m_lastY != 0) {												
 		for (int i = m_lastX - 1; i <= m_lastX + 1; i++) {
 			for (int j = m_lastY - 1; j <= m_lastY + 1; j++) {
-				if (playground.canPlaceChip(i, j)) {
+				if (playground.canPlaceSymbol(i, j)) {
 					m_lastX = i;
 					m_lastY = j;
 					return std::make_pair(i, j);

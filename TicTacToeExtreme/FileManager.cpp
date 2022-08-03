@@ -6,39 +6,51 @@
 #include "FileManager.hpp"
 
 
-void FileManager::readFile(const std::string path){
-
-    std::string line;
+void FileManager::readFile(const std::string path) {
 	
-	std::ifstream myfile(path, std::ios::in);
-    if (!myfile) {
+    m_configFile = std::ifstream(path, std::ios::in);
+
+    if (!m_configFile) {
         std::cout << "Error: file could not be opened" << std::endl;
         exit(1);
     }
-    if (myfile.is_open()){
-        while(std::getline(myfile, line)){
-            if (line.find("Fieldwidth") != std::string::npos) {
-                std::getline(myfile, line);
-                m_fieldWidth = std::stoi(line);
-            }
-            
-            if (line.find("Fieldheight") != std::string::npos) {
-                std::getline(myfile, line);
-                m_fieldHeight = std::stoi(line);
-            }
-        }
-        myfile.close();
+    if (m_configFile.is_open()) {
+        tryToReadProperties();
+        m_configFile.close();
     }
-
     else std::cout << "Unable to open file";
 }
 
-int FileManager::getFieldHeight(){
+void FileManager::tryToReadProperties() {
 
+    std::string line;
+    while (std::getline(m_configFile, line)) {
+        if (line.find("Fieldwidth") != std::string::npos) {
+            m_fieldWidth = readInInt(line, "Fieldwidth", 3);
+        }
+        if (line.find("Fieldheight") != std::string::npos) {
+            m_fieldHeight = readInInt(line, "Fieldheight", 3);
+        }
+    }
+}
+
+int FileManager::readInInt(std::string line, const std::string parameter, const int _default) {
+    int value;
+    std::getline(m_configFile, line);
+    try {
+        value = std::stoi(line);
+    }
+    catch (std::invalid_argument) {
+        std::cout << "Malformed " << parameter << " parameter, choosing " << _default << " as default";
+        value = _default;
+    }
+    return value;
+}
+
+int FileManager::getFieldHeight() {
     return m_fieldHeight;
 }
 
-int FileManager::getFieldWidth()
-{
+int FileManager::getFieldWidth() {
     return m_fieldWidth;
 }

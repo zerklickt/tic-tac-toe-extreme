@@ -6,12 +6,9 @@ class GUI {
 public:
 	GUI() {};
 	~GUI() {};
-
-	void printPlayground(const Playground& playground);
-	
+	void printPlayground(const Playground& playground) const;
 
 private:
-	void printChip(const int y, const int x, const std::vector<std::vector<char>> field);
-	void printWhatsInTheField(int, int, std::vector<std::vector<char>> field);
-	
+	void printSymbol(const int y, const int x, const std::vector<std::vector<char>> field) const;
+	void printSingleCell(const int, const int, const std::vector<std::vector<char>> field) const;
 };

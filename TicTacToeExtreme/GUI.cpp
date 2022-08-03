@@ -1,34 +1,29 @@
 #include <iostream>
-#include <string>
-#include <stdlib.h>
-#include <Windows.h>
 
 #include "pch.hpp"
 #include "GUI.hpp"
 
 
-void GUI::printPlayground(const Playground& playground)
-{
+void GUI::printPlayground(const Playground& playground) const {
 	int width = playground.getWidth();
 	int height = playground.getHeight();
 	std::vector<std::vector<char>> field = playground.getField();
-
 	system("cls");
-
 	for (int y = 0; y <= height; y++){
 		for (int x = 0; x <= width; x++){
-			printWhatsInTheField(x, y, field);
+			printSingleCell(x, y, field);
 		}
 		std::cout << std::endl;
 	}
 }
 
 
-void GUI::printWhatsInTheField(int x, int y, std::vector<std::vector<char>> field) {
+void GUI::printSingleCell(const int x, const int y, const std::vector<std::vector<char>> field) const {
 	if (x == 0 && y == 0) {
 		std::cout << "  |";
 		return;
 	}
+	// choose correct sizes of first line and first column
 	if (x == 0) {
 		if (y > 9) {
 			std::cout << y << "|";
@@ -42,7 +37,7 @@ void GUI::printWhatsInTheField(int x, int y, std::vector<std::vector<char>> fiel
 	if (y == 0) {
 		if (x > 9) {
 			std::cout << x << "|";
-			return;;
+			return;
 		}
 		else {
 			std::cout << x << " |";
@@ -50,17 +45,13 @@ void GUI::printWhatsInTheField(int x, int y, std::vector<std::vector<char>> fiel
 		}
 	}
 	else {
-		printChip(x - 1, y - 1, field);
+		printSymbol(x - 1, y - 1, field);
 	}
 }
 
 
-
-void GUI::printChip(const int x, const int y, const std::vector<std::vector<char>> field){
-
+void GUI::printSymbol(const int x, const int y, const std::vector<std::vector<char>> field) const {
 	char checkSymbol = field[x][y];
 	std::cout << checkSymbol << " |";
-
-
 }
 

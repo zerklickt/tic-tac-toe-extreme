@@ -23,21 +23,29 @@ void FileManager::readFile(const std::string path) {
 }
 
 void FileManager::tryToReadProperties() {
+
     std::string line;
-
     while (std::getline(m_configFile, line)) {
-
         if (line.find("Fieldwidth") != std::string::npos) {
-            std::getline(m_configFile, line);
-            m_fieldWidth = std::stoi(line);
+            m_fieldWidth = readInInt(line, "Fieldwidth", 3);
         }
-
         if (line.find("Fieldheight") != std::string::npos) {
-            std::getline(m_configFile, line);
-            m_fieldHeight = std::stoi(line);
+            m_fieldHeight = readInInt(line, "Fieldheight", 3);
         }
     }
+}
 
+int FileManager::readInInt(std::string line, const std::string parameter, const int _default) {
+    int value;
+    std::getline(m_configFile, line);
+    try {
+        value = std::stoi(line);
+    }
+    catch (std::invalid_argument) {
+        std::cout << "Malformed " << parameter << " parameter, choosing " << _default << " as default";
+        value = _default;
+    }
+    return value;
 }
 
 int FileManager::getFieldHeight() {

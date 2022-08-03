@@ -54,8 +54,8 @@ protected:
     }
 };
 
-//The smartBot should recognize if there is an opportunity to win and win
-TEST_F(SmartBotTest, winIfPossible) {
+//The smartBot should win, if it has a pair (|x|x| |)
+TEST_F(SmartBotTest, winWithPair) {
     Playground playground(3, 3);
     playground.placeSymbol('a', 1, 1);
     playground.placeSymbol('a', 1, 2);
@@ -65,15 +65,37 @@ TEST_F(SmartBotTest, winIfPossible) {
     EXPECT_EQ(returnedPair.second, 3); 
 }
 
-//The smartBot should be able to prevent his opponent from winning
-TEST_F(SmartBotTest, preventWin) {
+//The smartBot should win, if it has a split (|x| |x|)
+TEST_F(SmartBotTest, winWithSplit) {
     Playground playground(3, 3);
-    playground.placeSymbol('b', 1, 1);
-    playground.placeSymbol('b', 1, 3);
-    setlastPlaced(3, 3);
+    playground.placeSymbol('a', 1, 1);
+    playground.placeSymbol('a', 1, 3);
+    setlastPlaced(1, 3);
     std::pair<int, int> returnedPair = m_smartBot->makeMove("Test", playground);
     EXPECT_EQ(returnedPair.first, 1);
     EXPECT_EQ(returnedPair.second, 2);
+}
+
+//The smartBot should be able to prevent his opponent from winning with a pair
+TEST_F(SmartBotTest, preventWinByPair) {
+    Playground playground(3, 3);
+    playground.placeSymbol('b', 1, 1);
+    playground.placeSymbol('b', 2, 2);
+    setlastPlaced(3, 3);
+    std::pair<int, int> returnedPair = m_smartBot->makeMove("Test", playground);
+    EXPECT_EQ(returnedPair.first, 3);
+    EXPECT_EQ(returnedPair.second, 3);
+}
+
+//The smartBot should be able to prevent his opponent from winning wit a split
+TEST_F(SmartBotTest, preventWinBYSplit) {
+    Playground playground(3, 3);
+    playground.placeSymbol('b', 1, 1);
+    playground.placeSymbol('b', 2, 2);
+    setlastPlaced(3, 3);
+    std::pair<int, int> returnedPair = m_smartBot->makeMove("Test", playground);
+    EXPECT_EQ(returnedPair.first, 3);
+    EXPECT_EQ(returnedPair.second, 3);
 }
 
 //The smartBot should win more than 75% of the games against a randomBot 

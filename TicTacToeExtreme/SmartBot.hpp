@@ -34,6 +34,9 @@ private:
 	std::pair<int, int> checkAroundOpposingField(int, int, Playground&, char);
 	std::pair<int, int> preventWinWithPair(Playground&);
 	std::pair<int, int> placeNextToLastPlaced(Playground&);
+	std::pair<int, int> trySmartMove(Playground&);
+	std::pair<int, int> placeRandom(Playground&);
+	std::pair<int, int> findOpposingPair(Playground&, int, int);
 
 	int m_lastX = 0;
 	int m_lastY = 0;

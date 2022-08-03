@@ -15,11 +15,8 @@ void FileManager::readFile(const std::string path){
         std::cout << "Error: file could not be opened" << std::endl;
         exit(1);
     }
-    if (myfile.is_open())
-    {
-        while(std::getline(myfile, line))
-        {
-            
+    if (myfile.is_open()){
+        while(std::getline(myfile, line)){
             if (line.find("Fieldwidth") != std::string::npos) {
                 std::getline(myfile, line);
                 m_fieldWidth = std::stoi(line);
@@ -29,13 +26,11 @@ void FileManager::readFile(const std::string path){
                 std::getline(myfile, line);
                 m_fieldHeight = std::stoi(line);
             }
-
         }
         myfile.close();
     }
 
     else std::cout << "Unable to open file";
-	
 }
 
 int FileManager::getFieldHeight(){

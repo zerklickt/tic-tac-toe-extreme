@@ -16,6 +16,8 @@ public:
     ~GameManager() {};
     void startGame();
     Playground& getPlayground();
+
+    friend class GameManagerTest;
     
 private:
     std::list<Player*> m_players;

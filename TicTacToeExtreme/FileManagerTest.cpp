@@ -15,7 +15,6 @@ protected:
 
 };
 
-
 TEST_F(FileManagerTest, correctFileReading) {
     m_filemanager.readFile("../config.txt");
     EXPECT_EQ(m_filemanager.getFieldHeight(), 7);

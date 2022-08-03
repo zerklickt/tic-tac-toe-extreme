@@ -41,7 +41,7 @@ int FileManager::readInInt(std::string line, const std::string parameter, const 
         value = std::stoi(line);
     }
     catch (std::invalid_argument) {
-        std::cout << "Malformed " << parameter << " parameter, choosing " << _default << " as default";
+        std::cout << "Malformed " << parameter << " parameter, choosing " << _default << " as default" << std::endl;
         value = _default;
     }
     return value;

@@ -1,6 +1,8 @@
 #pragma once
+
 #include <string>
 #include <list>
+
 #include "Playground.hpp"
 #include "Player.hpp"
 #include "GUI.hpp"
@@ -8,6 +10,7 @@
 #include "FileManager.hpp"
 
 class GameManager {
+
 public:
     GameManager() {
         FileManager filemanager;

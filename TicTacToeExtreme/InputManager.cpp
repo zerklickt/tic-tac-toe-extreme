@@ -6,7 +6,7 @@
 
 
 
-std::string InputManager::readString(std::string message) {
+std::string InputManager::readString(const std::string message) {
 	std::string text;
 	std::cout << message << std::endl;
 	std::cin >> text;
@@ -14,7 +14,7 @@ std::string InputManager::readString(std::string message) {
 }
 
 // reads an int and only allows values between min and max
-int InputManager::readIntFromRange(std::string message, int min, int max) {
+int InputManager::readIntFromRange(const std::string message, const int min, const int max) {
 	bool flag = false;
 	int ret = 0;
 	do {

@@ -78,7 +78,6 @@ void GameManager::createPlayers(const int humanCount, const int randomBotCount, 
 
 // placing a chip per turn until someone wins
 void GameManager::gameLoop() {
-    
     unsigned int counter{ 0 };
     bool won{ false };
     auto turn = m_players.begin();

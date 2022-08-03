@@ -24,7 +24,7 @@ TEST(TestCaseName, TestName) {
 
 TEST_F(FileManagerTest, correctFileReading) {
     m_filemanager.readFile("../config.txt");
-    EXPECT_EQ(m_filemanager.getFieldHeight(), 5);
-    EXPECT_EQ(m_filemanager.getFieldWidth(), 5);
+    EXPECT_EQ(m_filemanager.getFieldHeight(), 7);
+    EXPECT_EQ(m_filemanager.getFieldWidth(), 7);
     
 }

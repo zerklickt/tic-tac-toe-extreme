@@ -7,7 +7,7 @@
 #include "Player.hpp"
 
 
-class SmartBot : public Player{
+class SmartBot : public Player {
 
 public:
 	SmartBot() {};
@@ -16,13 +16,9 @@ public:
 	{
 		SmartBot::m_botId++;
 	};
-
 	~SmartBot() {};
 	std::pair<int, int> makeMove(const std::string message, Playground playground) override;
-
-
 	friend class SmartBotTest;
-	//friend class testing::Test;
 
 private:
 	static int m_botId;
@@ -38,8 +34,7 @@ private:
 	std::pair<int, int> placeRandom(Playground&);
 	std::pair<int, int> findOpposingPair(Playground&, int, int);
 
-	int m_lastX = 0;
-	int m_lastY = 0;
-
+	int m_lastX{ 0 };
+	int m_lastY{ 0 };
 };
 

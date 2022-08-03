@@ -2,24 +2,22 @@
 #include <Windows.h>
 
 #include "SmartBot.hpp"
+#include "RandomBot.hpp"
 
-int SmartBot::m_botId = 1;
+int SmartBot::m_botId{ 1 };
 
 //called by gameManager 
 std::pair<int, int> SmartBot::makeMove(const std::string message, Playground playground) {
 
 	//Sleep(300);
-
 	std::pair<int, int> returnedPair = trySmartMove(playground);
 	if (returnedPair.first != 0 && returnedPair.second != 0) {
 		return returnedPair;
 	}
-	
 	if (m_lastX > 0) {
 		returnedPair = placeRandom(playground);
 		return returnedPair;
 	}
-
 	m_lastX = (playground.getWidth() + 1) / 2;										
 	m_lastY = (playground.getHeight() + 1) / 2;
 	return std::make_pair(m_lastX, m_lastY);
@@ -33,6 +31,7 @@ bool SmartBot::simulateMove(Playground playground, int column, int line,  char s
 
 // returns vector to the next position of an existing pair
 std::pair<int, int> SmartBot::checkForDirectionOfPair(int x, int y, Playground& playground, char symbol) {
+
 	for (int ix = -1; ix <= 1; ix++) {
 		for (int iy = -1; iy <= 1; iy++) {
 			if (ix == 0 && iy == 0)
@@ -43,11 +42,11 @@ std::pair<int, int> SmartBot::checkForDirectionOfPair(int x, int y, Playground& 
 		}
 	}
 	return std::make_pair(0, 0);
-	
 }
 
 //recognizes a pair and returns the coordinates to make a triple (if possible)
 std::pair<int, int> SmartBot::winWithPair(Playground& playground){
+
 	std::pair<int, int> directionOfOwnPair = checkForDirectionOfPair(m_lastX - 1, m_lastY - 1, playground, m_symbol);   
 	if (directionOfOwnPair.first != 0 || directionOfOwnPair.second != 0) {
 		if (playground.canPlaceChip(m_lastX + directionOfOwnPair.first, m_lastY + directionOfOwnPair.second)) {
@@ -163,7 +162,7 @@ std::pair<int, int> SmartBot::placeNextToLastPlaced(Playground& playground){
 }
 
 //try all smart moves in order: 1.try to win; 2. try to prevent win; 3. try to place next to your lastPlaced chip (=create a pair)
-std::pair<int, int> SmartBot::trySmartMove(Playground& playground){
+std::pair<int, int> SmartBot::trySmartMove(Playground& playground) {
 
 	std::pair<int, int> returnedPair;
 	returnedPair = winWithPair(playground);
@@ -193,21 +192,9 @@ std::pair<int, int> SmartBot::trySmartMove(Playground& playground){
 	return std::make_pair(0, 0);
 }
 
-//generates random coordinates until it finds a possible combination
-std::pair<int, int> SmartBot::placeRandom(Playground& playground){
-
-	int x, y;
-	do {
-		std::random_device dev;
-		std::mt19937 rng(dev());
-		std::uniform_int_distribution<std::mt19937::result_type> distx(1, playground.getWidth());
-		std::uniform_int_distribution<std::mt19937::result_type> disty(1, playground.getHeight());
-
-		x = distx(rng);
-		y = disty(rng);
-	} while (!playground.canPlaceChip(x, y));
-
-	return std::make_pair(x, y);
+//generates random coordinates using the RandomBot's algorithm
+std::pair<int, int> SmartBot::placeRandom(Playground& playground) {
+	return RandomBot::performRandomMove(playground);
 }
 
 

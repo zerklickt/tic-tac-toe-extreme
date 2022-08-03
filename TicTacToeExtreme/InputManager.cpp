@@ -13,7 +13,8 @@ std::string InputManager::readString(std::string message) {
 	return text;
 }
 
-int InputManager::readIntFromRange(static std::string message, int min, int max) {
+// reads an int and only allows values between min and max
+int InputManager::readIntFromRange(std::string message, int min, int max) {
 	bool flag = false;
 	int ret = 0;
 	do {
@@ -21,14 +22,14 @@ int InputManager::readIntFromRange(static std::string message, int min, int max)
 			ret = std::stoi(readString(message));
 		}
 		catch (std::invalid_argument) {
-			std::cout << "Eingabe ungueltig, bitte erneut eingeben!" << std::endl;
+			std::cout << "Input is NaN! Please enter a number." << std::endl;
 			continue;
 		}
 		if (ret >= min && ret <= max) {
 			flag = true;
 		}
 		else {
-			std::cout << "Eingabe ungueltig, bitte erneut eingeben!" << std::endl;
+			std::cout << "Invalid number entered! Numbers need to be between " << min << " and " << max << std::endl;
 		}
 	} while (flag == false);
 	return ret;

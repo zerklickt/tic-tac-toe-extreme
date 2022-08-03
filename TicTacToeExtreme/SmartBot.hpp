@@ -28,6 +28,13 @@ private:
 	static int m_botId;
 	bool simulateMove(Playground, int, int, char);
 	std::pair<int, int> checkForDirectionOfPair(int, int, Playground&, char);
+	std::pair<int, int> winWithPair(Playground&);
+	std::pair<int, int> placeBetweenTwoToWin(Playground&);
+	std::pair<int, int> preventWinByPlacingBetweenTwo(Playground&);
+	std::pair<int, int> checkAroundOpposingField(int, int, Playground&, char);
+	std::pair<int, int> preventWinWithPair(Playground&);
+	std::pair<int, int> placeNextToLastPlaced(Playground&);
+
 	int m_lastX = 0;
 	int m_lastY = 0;
 

@@ -15,6 +15,8 @@ Programmiert von Simon Rohrbach und Nick Hoschke
 3. Klonen des Repos (wir empfehlen das Klonen über die eingebaute Funktion in Visual Studio[^2], da sämtliche Abhängigkeiten und gerätespezifische Einstellungen automatisch eingerichtet werden.)
 4. Starten des Programms über `Debuggen` -> `Starten ohne debuggen`
 
+Für die Anzeige des Klassendiagramms verwenden Sie bitte VS Code mit der Extension `UMLet`. Sollten Sie das Klassendiagramm nicht öffnen können, finden Sie einen Screenshot im `readme-resources`-Ordner
+
 [^1]: Genannte Komponenten können auch nach der Installation von VS noch installiert werden, dazu den Visual Studio Installer erneut aufrufen und bei der entsprechenden Installation auf `Ändern` klicken
 
 [^2]: Klonen in Visual Studio ist über `Datei` -> `Repository klonen` möglich
@@ -30,7 +32,7 @@ Die Stufen, unterschieden in harte und softe Kriterien, funktionieren wie folgt:
     * Prüfe, ob zwischen zwei fremden Symbolen eine Lücke ist, in die zum Blockieren gesetzt werden kann
 3. [soft] Versuche, neben den zuletzt selbst gesetzten Chip zu legen, um ein Paar zu bilden
     * Prüfe alle Felder um das letzte Feld und setze in das Erste, das frei ist
-4. [soft] Ist das Feld in der Mitte noch frei, platziere dort
+4. Sollte das Feld in der Mitte noch frei sein, platziere dort
 5. Setze in ein zufälliges, freies Feld
 
 ## Mögliche Erweiterung um mehr Spielertypen

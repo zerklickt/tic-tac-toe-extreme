@@ -20,7 +20,7 @@ std::pair<int, int> RandomBot::performRandomMove(Playground& playground) {
 		std::uniform_int_distribution<std::mt19937::result_type> disty(1, playground.getHeight());
 		x = distx(rng);
 		y = disty(rng);
-	} while (!playground.canPlaceSymbol(x, y));
+	} while (!playground.canPlaceChip(x, y));
 	return std::make_pair(x, y);
 }
 

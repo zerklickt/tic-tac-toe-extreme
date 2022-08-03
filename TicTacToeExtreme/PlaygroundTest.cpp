@@ -20,11 +20,12 @@ protected:
             }
         }
     }
-
-    bool setSymbol(const char symbol, const int x, const int y) {
-        return m_playground.placeSymbol(symbol, x, y);
-    }
 };
+
+TEST_F(PlaygroundTest, placeSymbolTest) {
+    EXPECT_EQ(m_playground.placeSymbol('a', 2, 2), true);
+    EXPECT_EQ(m_playground.getField()[1][1] == 'a', true);
+}
 
 
 TEST_F(PlaygroundTest, fieldIsFull) {
@@ -35,21 +36,21 @@ TEST_F(PlaygroundTest, fieldIsFull) {
 TEST_F(PlaygroundTest, spotIsOccupied) {
     int symbolX = 2;
     int symbolY = 3;
-    setSymbol('a', symbolX, symbolY);
-    EXPECT_EQ(setSymbol('a', symbolX, symbolY), false);
+    m_playground.placeSymbol('a', symbolX, symbolY);
+    EXPECT_EQ(m_playground.placeSymbol('a', symbolX, symbolY), false);
 }
 
 TEST_F(PlaygroundTest, spotIsOutOfBounds) {
-    EXPECT_EQ(setSymbol('a', -2, -3), false);
-    EXPECT_EQ(setSymbol('a', -2, 3), false);
-    EXPECT_EQ(setSymbol('a', 2, -3), false);
-    EXPECT_EQ(setSymbol('a', 6, 3), false);
+    EXPECT_EQ(m_playground.placeSymbol('a', -2, -3), false);
+    EXPECT_EQ(m_playground.placeSymbol('a', -2, 3), false);
+    EXPECT_EQ(m_playground.placeSymbol('a', 2, -3), false);
+    EXPECT_EQ(m_playground.placeSymbol('a', 6, 3), false);
 }
 
 TEST_F(PlaygroundTest, winCheck) {
-    setSymbol('a', 3, 2);
-    setSymbol('a', 3, 1);
-    setSymbol('a', 3, 3);
+    m_playground.placeSymbol('a', 3, 2);
+    m_playground.placeSymbol('a', 3, 1);
+    m_playground.placeSymbol('a', 3, 3);
     EXPECT_EQ(m_playground.checkForWin('a', 3, 2), true);
 }
 

@@ -21,18 +21,6 @@
     <ClCompile Include="FileManagerTest.cpp">
       <Filter>Test</Filter>
     </ClCompile>
-    <ClCompile Include="GUITest.cpp">
-      <Filter>Test</Filter>
-    </ClCompile>
-    <ClCompile Include="HumanTest.cpp">
-      <Filter>Test</Filter>
-    </ClCompile>
-    <ClCompile Include="InputManagerTest.cpp">
-      <Filter>Test</Filter>
-    </ClCompile>
-    <ClCompile Include="PlayerTest.cpp">
-      <Filter>Test</Filter>
-    </ClCompile>
     <ClCompile Include="PlaygroundTest.cpp">
       <Filter>Test</Filter>
     </ClCompile>

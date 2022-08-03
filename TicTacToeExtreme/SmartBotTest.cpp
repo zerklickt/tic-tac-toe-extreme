@@ -103,9 +103,9 @@ TEST_F(SmartBotTest, smartBotVsRandomBot) {
     RandomBot* randomBot =  new RandomBot('b');
     int smartBotWins = 0;
     int randomBotWins = 0;
-    int runs = 100;
+    int runs = 1000;
     for (int i = 0; i < runs; i++) {
-        Playground playground(4, 4);
+        Playground playground(3, 3);
         Player* winner = gameLoop(m_smartBot, randomBot, playground);
         if (winner == NULL){
             i--;

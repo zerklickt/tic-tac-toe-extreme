@@ -13,6 +13,7 @@ using namespace std;
 
 void GameManager::printAsciiArt() const {
     
+    // ASCII art generated using https://patorjk.com/software/taag/
     cout << "  ________________   _________   ______   __________  ______   _  __    __________  ________  _________" << endl;
     cout << " /_  __/  _/ ____/  /_  __/   | / ____/  /_  __/ __ \\/ ____/  | |/ /   /_  __/ __ \\/ ____/  |/  / ____/" << endl;
     cout << "  / /  / // /        / / / /| |/ /        / / / / / / __/     |   /_____/ / / /_/ / __/ / /|_/ / __/   " << endl;
@@ -133,6 +134,7 @@ void GameManager::endGame(const Player* winner) const {
         cout << "TIE! The field is full!" << endl << endl;
     }
     else {
+        // ASCII art from https://ascii.co.uk/art/medal
         cout << "Game over" << endl;
         cout << "Winner: " << winner->getName() << " (" << winner->getSymbol() << ")" << endl << endl;
         cout << "|@@@@|     |####| " << endl;
